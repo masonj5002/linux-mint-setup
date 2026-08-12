@@ -1,9 +1,9 @@
 # My Minty Setup
 
-Linux Mint. Just the way I like it.
+This is my setup script for Linux Mint.
 
-## Tested Versions
+## OS Version
 
-This script has been tested on the following models, though it may work well on any Linux Mint (or Ubuntu) release.
+[Linux Mint 22.3 'zena' Cinnamon](https://blog.linuxmint.com/?p=4981)
 
-- [Linux Mint 22.1 Cinnamon](https://linuxmint.com/edition.php?id=322)
+- *[(base: Ubuntu 24.04 'noble')](https://releases.ubuntu.com/noble/)*
