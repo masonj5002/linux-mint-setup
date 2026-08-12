@@ -1,8 +1,10 @@
 {
     "files.insertFinalNewline": true,
+    "files.trimFinalNewlines": true,
     "cSpell.words": [
         "Adwaita",
         "aisleriot",
+        "Cinnamenu",
         "discordapp",
         "fastfetch",
         "fastly",
@@ -11,6 +13,7 @@
         "FLATPAKREF",
         "Flatseal",
         "kolourpaint",
+        "Modulize",
         "mscorefonts",
         "nemo",
         "neofetch",
@@ -20,6 +23,9 @@
         "remmina",
         "tchx",
         "tomjwatson",
-        "usebottles"
+        "Toontown",
+        "unrud",
+        "usebottles",
+        "Zena"
     ]
 }
