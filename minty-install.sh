@@ -67,7 +67,7 @@ exit_function() {
 }
 
 update_upgrade_apt() {
-    log "updating apt packages..."
+    log "Updating apt packages..."
     sudo apt update && sudo apt upgrade -y
 }
 
