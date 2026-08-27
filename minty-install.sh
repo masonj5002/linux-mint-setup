@@ -68,24 +68,24 @@ exit_function() {
 
 
 install_apt_easy() {
-    if [ "$INSTALL_APT_LIST_EASY" != true] ; then
-        return
+    if [ "$INSTALL_APT_LIST_EASY" != true ] ; then
+        return 1
     fi
     log "installing easy apt packages"
     sudo apt install -y "${APT_PACKAGES_EASY[@]}"
 }
 
 install_flatpak_easy() {
-    if [ "$INSTALL_FLATPAK_LIST_EASY" != true] ; then
-        return
+    if [ "$INSTALL_FLATPAK_LIST_EASY" != true ] ; then
+        return 1
     fi
     log "installing easy flatpak packages"
     flatpak remote-add --if-not-exists flathub https://dl.flathub.org/repo/flathub.flatpakrepo
     flatpak install -y "${FLATPAK_PACKAGES_EASY}"
 }
 purge_apt_easy() {
-    if [ "$PURGE_APT_LIST_EASY" != true] ; then
-        return
+    if [ "$PURGE_APT_LIST_EASY" != true ] ; then
+        return 1
     fi
     log "purging easy apt packages"
     sudo apt purge -y "${APT_PURGE_EASY[@]}"
@@ -93,8 +93,8 @@ purge_apt_easy() {
 }
 
 set_screenshot_save_location() {
-    if [ "${CHANGE_GNOME_SCREENSHOT_SAVE_LOCATION}" != true] ; then
-        return
+    if [ "${CHANGE_GNOME_SCREENSHOT_SAVE_LOCATION}" != true ] ; then
+        return 1
     fi
     log "changing save location to ${GNOME_SCREENSHOT_SAVE_LOCATION}"
 }
