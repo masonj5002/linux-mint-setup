@@ -66,6 +66,10 @@ exit_function() {
     log "Goodbye! Please reboot!"
 }
 
+update_upgrade_apt() {
+    log "updating apt packages..."
+    sudo apt update && sudo apt upgrade -y
+}
 
 install_apt_easy() {
     if [ "$INSTALL_APT_LIST_EASY" != true ] ; then
@@ -105,12 +109,12 @@ set_screenshot_save_location() {
 
 greeting_function
 sudo -v
-sudo apt update && sudo apt upgrade -y
+update_upgrade_apt
 
 install_apt_easy
 install_flatpak_easy
 purge_apt_easy
 set_screenshot_save_location
 
-sudo apt update && sudo apt upgrade -y
+update_upgrade_apt
 exit_function
