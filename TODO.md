@@ -15,17 +15,20 @@
 
 ### Installs from Base Repos
 
-- [ ] Firefox ESR
-  - [ ] purge Firefox
-  - [ ] enable Firefox Smooth Scrolling
-- [ ] Chromium
-  - [ ] set Chromium settings & install extensions via policy
 - [ ] `ttf-mscorefonts-installer`
 - [ ] `git`
 - [ ] `font-manager`
 - [ ] `neofetch`
 - [ ] `htop`
 - [ ] Steam
+
+#### Installs from base repos complex
+
+- [ ] Firefox ESR (PPA)
+  - [ ] purge Firefox
+  - [ ] enable Firefox Smooth Scrolling
+- [ ] Chromium
+  - [ ] set Chromium settings & install extensions via policy
 
 ### Flatpak Installs
 
@@ -41,11 +44,16 @@
 - [ ] Gnome Chess
 - [ ] LocalSend
 - [ ] com.github.unrud.VideoDownloader
+
+#### Complex Flatpak installs
+
+- [ ] Toontown Rewritten (add flatpak repo)
 - [ ] Bottles
-  - [ ] Wizard101
-- [ ] Toontown Rewritten
+  - [ ] Wizard101 (separate function, attached to bottles)
 - [ ] KolourPaint
   - [ ] force light theme
+- [ ] LibreOffice
+  - [ ] `purge` apt version of `libreoffice*`
 
 ### External Installs
 
