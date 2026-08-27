@@ -72,7 +72,6 @@ install_apt_easy() {
         return
     fi
     log "installing easy apt packages"
-    sudo apt update
     sudo apt install -y "${APT_PACKAGES_EASY[@]}"
 }
 
