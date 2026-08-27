@@ -12,6 +12,7 @@ GNOME_SCREENSHOT_SAVE_LOCATION=~/Documents/Screenshots
 # ============================================================================
 # Package Lists
 # ============================================================================
+
 APT_PACKAGES_EASY=(
     git
     chromium # install extension and set settings, if possible
@@ -51,18 +52,20 @@ DEB_FILES=(
 # ============================================================================
 # Helper Functions
 # ==========================================================================
-greeting_function() {
-    echo "Welcome!"
-}
-
-exit_function() {
-    echo "Goodbye! Please reboot!"
-}
 
 log() {
     echo
     echo "==> $1"
 }
+
+greeting_function() {
+    log "Welcome!"
+}
+
+exit_function() {
+    log "Goodbye! Please reboot!"
+}
+
 
 install_apt_easy() {
     if [ "$INSTALL_APT_LIST_EASY" != true] ; then
