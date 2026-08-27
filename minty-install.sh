@@ -65,7 +65,7 @@ log() {
 }
 
 install_apt_easy() {
-    if [[ "$INSTALL_APT_LIST_EASY" != true]]; then
+    if [ "$INSTALL_APT_LIST_EASY" != true]; then
         return
     fi
     log "installing easy apt packages"
