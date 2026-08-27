@@ -65,7 +65,7 @@ log() {
 }
 
 install_apt_easy() {
-    if [ "$INSTALL_APT_LIST_EASY" != true]; then
+    if [ "$INSTALL_APT_LIST_EASY" != true] ; then
         return
     fi
     log "installing easy apt packages"
@@ -74,7 +74,7 @@ install_apt_easy() {
 }
 
 install_flatpak_easy() {
-    if [[ "$INSTALL_FLATPAK_LIST_EASY" != true]]; then
+    if [ "$INSTALL_FLATPAK_LIST_EASY" != true] ; then
         return
     fi
     log "installing easy flatpak packages"
@@ -82,7 +82,7 @@ install_flatpak_easy() {
     flatpak install -y "${FLATPAK_PACKAGES_EASY}"
 }
 purge_apt_easy() {
-    if [[ "$PURGE_APT_LIST_EASY" != true]]; then
+    if [ "$PURGE_APT_LIST_EASY" != true] ; then
         return
     fi
     log "purging easy apt packages"
@@ -91,7 +91,7 @@ purge_apt_easy() {
 }
 
 set_screenshot_save_location() {
-    if [[ "${CHANGE_GNOME_SCREENSHOT_SAVE_LOCATION}" != true]]; then
+    if [ "${CHANGE_GNOME_SCREENSHOT_SAVE_LOCATION}" != true] ; then
         return
     fi
     log "changing save location to ${GNOME_SCREENSHOT_SAVE_LOCATION}"
