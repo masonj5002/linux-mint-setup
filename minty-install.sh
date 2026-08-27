@@ -56,7 +56,7 @@ greeting_function() {
 }
 
 exit_function() {
-    echo "Goodbye!"
+    echo "Goodbye! Please reboot!"
 }
 
 log() {
@@ -103,10 +103,12 @@ set_screenshot_save_location() {
 
 greeting_function
 sudo -v
+sudo apt update && sudo apt upgrade -y
 
 install_apt_easy
 install_flatpak_easy
 purge_apt_easy
 set_screenshot_save_location
 
+sudo apt update && sudo apt upgrade -y
 exit_function
