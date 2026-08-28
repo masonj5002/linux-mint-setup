@@ -28,6 +28,7 @@
   - [ ] purge Firefox
   - [ ] enable Firefox Smooth Scrolling
 - [ ] Chromium
+  - [ ] Make Chromium default PDF viewer
   - [ ] set Chromium settings & install extensions via policy
 
 ### Flatpak Installs
