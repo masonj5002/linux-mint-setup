@@ -10,8 +10,8 @@ INSTALL_FLATPAK_LIST_EASY=true
 PURGE_APT_LIST_EASY=true
 
 INSTALL_VSCODE=true
+INSTALL_ZOOM_WITH_MODS=true
 #INSTALL_ESR_PURGE_FIREFOX_WITH_MODS=true
-# INSTALL_ZOOM_WITH_MODS=true
 # INSTALL_KOLOURPAINT_WITH_MODS=true
 # INSTALL_LIBREOFFICE_PURGE_APT=true
 # INSTALL_TTR=true
@@ -129,6 +129,10 @@ install_flatpak_easy() {
 }
 
 vscode() {
+    if [ "${INSTALL_VSCODE}" != true ] ; then
+        return 1
+    fi
+
     curl -fsSL https://packages.microsoft.com/keys/microsoft.asc | sudo gpg --dearmor -o /usr/share/keyrings/microsoft.gpg
 
     echo "Types: deb
