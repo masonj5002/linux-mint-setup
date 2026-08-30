@@ -59,9 +59,9 @@
 ### External Installs
 
 - [X] VSCode (install repo)
-- [ ] Zoom (use .deb)
+- [X] Zoom (use .deb)
   - [https://zoom.us/client/latest/zoom_amd64.deb]
-  - [ ] if still buggy, disable zoom mini-viewer
+  - [X] disable zoom mini-viewer
 - [ ] VirtualBox (install repo)
 - [ ] firefox-esr (see above, use PPA)
 
