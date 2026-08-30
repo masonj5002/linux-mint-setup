@@ -7,20 +7,20 @@
 ## Initialization
 
 - [ ] abort if mint version does not match
-- [ ] gain `sudo` access
-- [ ] set repo to Fastly
-- [ ] `sudo apt update && sudo apt upgrade -y`
+- [X] gain `sudo` access
+- [X] set repo to Fastly
+- [X] create `apt update` and `apt upgrade function`
 
 ## Application Install & Configurations
 
 ### Installs from Base Repos
 
-- [ ] `ttf-mscorefonts-installer`
-- [ ] `git`
-- [ ] `font-manager`
-- [ ] `neofetch`
-- [ ] `htop`
-- [ ] Steam
+- [X] `ttf-mscorefonts-installer`
+- [X] `git`
+- [X] `font-manager`
+- [X] `neofetch`
+- [X] `htop`
+- [X] `steam-installer`
 
 #### Installs from base repos complex
 
@@ -33,18 +33,18 @@
 
 ### Flatpak Installs
 
-- [ ] Emote
-- [ ] Spotify
-- [ ] Flatseal
-- [ ] Authenticator
-- [ ] Shortwave
-- [ ] Blanket
-- [ ] KClock
-- [ ] Discord
-- [ ] AisleRiot
-- [ ] Gnome Chess
-- [ ] LocalSend
-- [ ] com.github.unrud.VideoDownloader
+- [X] Emote
+- [X] Spotify
+- [X] Flatseal
+- [X] Authenticator
+- [X] Shortwave
+- [X] Blanket
+- [X] KClock
+- [X] Discord
+- [X] AisleRiot
+- [X] Gnome Chess
+- [X] LocalSend
+- [X] com.github.unrud.VideoDownloader
 
 #### Complex Flatpak installs
 
@@ -58,16 +58,18 @@
 
 ### External Installs
 
-- [ ] VSCode
-- [ ] Zoom
+- [X] VSCode (install repo)
+- [ ] Zoom (use .deb)
+  - [https://zoom.us/client/latest/zoom_amd64.deb]
   - [ ] if still buggy, disable zoom mini-viewer
-- [ ] VirtualBox
+- [ ] VirtualBox (install repo)
+- [ ] firefox-esr (see above, use PPA)
 
 ## Additional Configuration & Tweaks
 
 - [ ] Switch color scheme to 'Aqua'
-- [ ] purge `cups-browsed`
-- [ ] Set `gnome-screenshot` save location
+- [X] purge `cups-browsed`
+- [X] Set `gnome-screenshot` save location
 - [ ] Set wallpaper
 - [ ] install Cinnamenu & move to corner
   - [ ] remove mint menu from bottom bar
