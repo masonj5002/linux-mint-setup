@@ -132,6 +132,7 @@ vscode() {
     if [ "${INSTALL_VSCODE}" != true ] ; then
         return 1
     fi
+    log "installing VSCode..."
 
     curl -fsSL https://packages.microsoft.com/keys/microsoft.asc | sudo gpg --dearmor -o /usr/share/keyrings/microsoft.gpg
 
@@ -143,6 +144,24 @@ vscode() {
     Signed-By: /usr/share/keyrings/microsoft.gpg" |
     sed 's/^[[:space:]]*//' |
     sudo tee /etc/apt/sources.list.d/vscode.sources > /dev/null
+}
+
+zoom_with_mods() {
+    if [ "${INSTALL_ZOOM_WITH_MODS}" != true ] ; then
+        return 1
+    fi
+    log "Installing Zoom with mods..."
+
+    wget https://zoom.us/client/latest/zoom_amd64.deb &&
+    sudo apt install -y ./zoom_amd64.deb &&
+    rm zoom_amd64.deb
+
+    timeout -s INT 8s zoom
+
+    for file in ~/.config/zoomus.conf ; do
+    echo "hello!"
+        sed -i 's/enableMiniWindow=true/enableMiniWindow=false/g' "$file"
+    done
 }
 
 set_screenshot_save_location() {
@@ -167,7 +186,9 @@ update_upgrade_apt
 purge_apt_easy
 install_apt_easy
 install_flatpak_easy
+
 vscode
+zoom_with_mods
 
 set_screenshot_save_location
 
