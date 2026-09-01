@@ -49,7 +49,7 @@
 
 #### Complex Flatpak installs
 
-- [ ] Toontown Rewritten (add flatpak repo)
+- [X] Toontown Rewritten (add flatpak repo)
 - [ ] Bottles
   - [ ] Wizard101 (separate function, attached to bottles)
 - [ ] KolourPaint

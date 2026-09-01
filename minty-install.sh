@@ -170,9 +170,8 @@ ttr() {
     fi
     log "Installing TTR"
 
-    wget https://cdn.toontownrewritten.com/launcher/linux/launcher.flatpakref
-    flat
-    #flatpak
+    TTR_URL=https://cdn.toontownrewritten.com/launcher/linux/launcher.flatpakref
+    sudo flatpak install --system -y ${TTR_URL}
 }
 
 set_screenshot_save_location() {
@@ -200,6 +199,7 @@ install_flatpak_easy
 
 vscode
 zoom_with_mods
+ttr
 
 set_screenshot_save_location
 
