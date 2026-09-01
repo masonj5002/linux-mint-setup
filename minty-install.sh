@@ -12,8 +12,8 @@ PURGE_APT_LIST_EASY=true
 INSTALL_VSCODE=true
 INSTALL_ZOOM_WITH_MODS=true
 INSTALL_TTR=true
+INSTALL_KOLOURPAINT_WITH_MODS=true
 #INSTALL_ESR_PURGE_FIREFOX_WITH_MODS=true
-# INSTALL_KOLOURPAINT_WITH_MODS=true
 # INSTALL_LIBREOFFICE_PURGE_APT=true
 # INSTALL_BOTTLES_DOWNLOAD_WIZARD=true
 
@@ -174,6 +174,15 @@ ttr() {
     sudo flatpak install --system -y ${TTR_URL}
 }
 
+kolourpaint_with_mods() {
+    if [ "${INSTALL_KOLOURPAINT_WITH_MODS}" != true ] ; then
+        return 1
+    fi
+
+    flatpak install flathub -y org.kde.kolourpaint
+    sudo flatpak override --system --env=GTK_THEME=Adwaita:light org.kde.kolourpaint
+}
+
 set_screenshot_save_location() {
     if [ "${CHANGE_GNOME_SCREENSHOT_SAVE_LOCATION}" != true ] ; then
         return 1
@@ -200,6 +209,7 @@ install_flatpak_easy
 vscode
 zoom_with_mods
 ttr
+kolourpaint_with_mods
 
 set_screenshot_save_location
 
