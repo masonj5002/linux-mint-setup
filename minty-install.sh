@@ -11,10 +11,10 @@ PURGE_APT_LIST_EASY=true
 
 INSTALL_VSCODE=true
 INSTALL_ZOOM_WITH_MODS=true
+INSTALL_TTR=true
 #INSTALL_ESR_PURGE_FIREFOX_WITH_MODS=true
 # INSTALL_KOLOURPAINT_WITH_MODS=true
 # INSTALL_LIBREOFFICE_PURGE_APT=true
-# INSTALL_TTR=true
 # INSTALL_BOTTLES_DOWNLOAD_WIZARD=true
 
 CHANGE_GNOME_SCREENSHOT_SAVE_LOCATION=true
@@ -125,7 +125,7 @@ install_flatpak_easy() {
     fi
     log "installing easy flatpak packages"
     flatpak remote-add --if-not-exists flathub https://dl.flathub.org/repo/flathub.flatpakrepo
-    flatpak install -y "${FLATPAK_PACKAGES_EASY[@]}"
+    flatpak install -y --noninteractive "${FLATPAK_PACKAGES_EASY[@]}"
 }
 
 vscode() {
@@ -162,6 +162,17 @@ zoom_with_mods() {
     echo "hello!"
         sed -i 's/enableMiniWindow=true/enableMiniWindow=false/g' "$file"
     done
+}
+
+ttr() {
+    if [ "${INSTALL_TTR}" != true ] ; then
+        return 1
+    fi
+    log "Installing TTR"
+
+    wget https://cdn.toontownrewritten.com/launcher/linux/launcher.flatpakref
+    flat
+    #flatpak
 }
 
 set_screenshot_save_location() {
