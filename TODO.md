@@ -52,8 +52,8 @@
 - [X] Toontown Rewritten (add flatpak repo)
 - [ ] Bottles
   - [ ] Wizard101 (separate function, attached to bottles)
-- [ ] KolourPaint
-  - [ ] force light theme
+- [X] KolourPaint
+  - [X] force light theme
 - [ ] LibreOffice
   - [ ] `purge` apt version of `libreoffice*`
 
@@ -104,12 +104,14 @@ set enableMiniWindow=false
 
 - [ ] install latest virtualbox from oracle (for 24.04)
 - [ ] Firefox Smooth scrolling configs
+- [ ] add `flathub` specifier to `flatpak install scripts`
+- [ ] modify `.desktop` files to modify icons and enable fast searches
+  - [ ] "Software Manager" -- add "(Store)" in description
+  - [ ] add themed icons for flatpaks
 
 ``` bash
 MOZ_USE_XINPUT2=1 | sudo tee /etc/profile.d/use-xinput2.sh
 ```
-
-- [ ] Fix KolourPaint theme by setting it to light
 
 ``` bash
 flatpak override --user --env=GTK_THEME=Adwaita:light org.kde.kolourpaint
