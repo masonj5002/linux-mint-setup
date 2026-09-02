@@ -29,8 +29,20 @@
   - [X] enable Firefox Smooth Scrolling
   - [X] disable backspace to go back & front space to go forward
 - [ ] Chromium
-  - [ ] Make Chromium default PDF viewer
+  - [X] Make Chromium default PDF viewer
   - [ ] set Chromium settings & install extensions via policy
+    - [ ] policies:
+      - [ ] extensions to install
+        - [ ] blank new tab page
+        - [ ] privacy badger
+      - [ ] themes:
+        - [ ] classic blue
+      - [ ] clear all cookies & cache on exit
+      - [ ] disable autofill, password manager
+      - [ ] disable request to be default browser
+      - [ ] set home page to new tab page
+      - [ ] modify bookmarks to empty list
+      - [ ] hide top bar
 - [X] VSCode (install repo)
 - [X] Zoom (use .deb)
   - [https://zoom.us/client/latest/zoom_amd64.deb]
