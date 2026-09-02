@@ -159,7 +159,6 @@ zoom_with_mods() {
     timeout -s INT 8s zoom
 
     for file in ~/.config/zoomus.conf ; do
-    echo "hello!"
         sed -i 's/enableMiniWindow=true/enableMiniWindow=false/g' "$file"
     done
 }
