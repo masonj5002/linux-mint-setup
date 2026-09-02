@@ -227,6 +227,11 @@ chromium_with_mods() {
 
     sudo apt install chromium
     xdg-mime default chromium-browser.desktop application/pdf
+
+    sudo cp -r chromium-policies/policies /etc/chromium
+    sudo chmod -R 644 /etc/chromium/policies
+    sudo chmod -R a+X /etc/chromium/policies
+
 }
 
 set_screenshot_save_location() {
