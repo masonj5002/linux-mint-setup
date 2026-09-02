@@ -31,17 +31,18 @@
 - [ ] Chromium
   - [X] Make Chromium default PDF viewer
   - [ ] set Chromium settings & install extensions via policy
-    - [ ] policies:
-      - [ ] extensions to install
+    - [ ] policies
+      - [X] disable request to be default browser
+      - [X] clear all cookies & cache on exit
+      - [ ] set home page (to new tab)
+      - [ ] set search engine (from Yahoo! to DuckDuckGo)
+      - [ ] modify bookmarks to empty list
+      - [ ] disable autofill, password manager
+      - [ ] extensions
         - [ ] blank new tab page
         - [ ] privacy badger
-      - [ ] themes:
+      - [ ] themes
         - [ ] classic blue
-      - [ ] clear all cookies & cache on exit
-      - [ ] disable autofill, password manager
-      - [ ] disable request to be default browser
-      - [ ] set home page to new tab page
-      - [ ] modify bookmarks to empty list
       - [ ] hide top bar
 - [X] VSCode (install repo)
 - [X] Zoom (use .deb)
@@ -87,6 +88,7 @@
 - [ ] remove 'Delete' and add 'Make Alias' to nemo context menu
 - [ ] Create directory ~/Projects and create an alias on ~/Desktop
 - [ ] Cleanup maintenance: including `sudo apt clean && sudo apt autoremove`
+- [ ] enable timeshift
 
 ### Keyboard Shortcuts
 
