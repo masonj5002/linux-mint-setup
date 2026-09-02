@@ -259,6 +259,7 @@ ttr
 kolourpaint_with_mods
 firefox_esr_purge_stable_with_mods
 libreoffice_flatpak_purge_apt
+chromium_with_mods
 
 set_screenshot_save_location
 
