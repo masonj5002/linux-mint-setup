@@ -13,7 +13,8 @@ INSTALL_VSCODE=true
 INSTALL_ZOOM_WITH_MODS=true
 INSTALL_TTR=true
 INSTALL_KOLOURPAINT_WITH_MODS=true
-#INSTALL_ESR_PURGE_FIREFOX_WITH_MODS=true
+INSTALL_FIREFOX_ESR_PURGE_STABLE_WITH_MODS=true
+# INSTALL_CHROMIUM_WITH_MODS=true
 # INSTALL_LIBREOFFICE_PURGE_APT=true
 # INSTALL_BOTTLES_DOWNLOAD_WIZARD=true
 
@@ -31,7 +32,6 @@ APT_PACKAGES_EASY=(
     neofetch
     htop
     steam-installer
-    # chromium # install extension and set settings, if possible
 )
 
 FLATPAK_PACKAGES_EASY=(
@@ -168,7 +168,7 @@ ttr() {
     if [ "${INSTALL_TTR}" != true ] ; then
         return 1
     fi
-    log "Installing TTR"
+    log "Installing TTR..."
 
     TTR_URL=https://cdn.toontownrewritten.com/launcher/linux/launcher.flatpakref
     sudo flatpak install --system -y ${TTR_URL}
@@ -178,9 +178,35 @@ kolourpaint_with_mods() {
     if [ "${INSTALL_KOLOURPAINT_WITH_MODS}" != true ] ; then
         return 1
     fi
+    log "Installing KolourPaint..."
 
     flatpak install flathub -y org.kde.kolourpaint
     sudo flatpak override --system --env=GTK_THEME=Adwaita:light org.kde.kolourpaint
+}
+
+firefox_esr_purge_stable_with_mods() {
+    if [ "${INSTALL_FIREFOX_ESR_PURGE_STABLE_WITH_MODS}" != true ] ; then
+        return 1
+    fi
+    log "Purging Firefox Stable and installing Firefox ESR with mods..."
+    
+    sudo apt purge -y firefox*
+    sudo add-apt-repository -y ppa:mozillateam/ppa
+    
+    echo "Package: firefox*
+          Pin: release o=LP-PPA-mozillateam
+          Pin-Priority: 1001
+
+          Package: thunderbird*
+          Pin: release o=LP-PPA-mozillateam
+          Pin-Priority: -1" |
+    sed 's/^[[:space:]]*//' |
+    sudo tee /etc/apt/preferences.d/mozillateam-ppa.pref > /dev/null
+
+    update_only_apt
+    sudo apt install -y firefox-esr
+
+    MOZ_USE_XINPUT2=1 | sudo tee /etc/profile.d/use-xinput2.sh
 }
 
 set_screenshot_save_location() {
@@ -210,6 +236,7 @@ vscode
 zoom_with_mods
 ttr
 kolourpaint_with_mods
+firefox_esr_purge_stable_with_mods
 
 set_screenshot_save_location
 

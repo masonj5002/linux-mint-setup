@@ -24,10 +24,10 @@
 
 #### Installs from base repos complex
 
-- [ ] Firefox ESR (PPA)
-  - [ ] purge Firefox
-  - [ ] enable Firefox Smooth Scrolling
-  - [ ] disable backspace to go back & front space to go forward
+- [X] Firefox ESR (PPA)
+  - [X] purge Firefox
+  - [X] enable Firefox Smooth Scrolling
+  - [X] disable backspace to go back & front space to go forward
 - [ ] Chromium
   - [ ] Make Chromium default PDF viewer
   - [ ] set Chromium settings & install extensions via policy
@@ -77,6 +77,7 @@
 - [ ] place 'Workspace switcher' on bottom bar
 - [ ] remove 'Delete' and add 'Make Alias' to nemo context menu
 - [ ] Create directory ~/Projects and create an alias on ~/Desktop
+- [ ] Cleanup maintenance: including `sudo apt clean && sudo apt autoremove`
 
 ### Keyboard Shortcuts
 
