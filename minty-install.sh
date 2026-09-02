@@ -14,8 +14,8 @@ INSTALL_ZOOM_WITH_MODS=true
 INSTALL_TTR=true
 INSTALL_KOLOURPAINT_WITH_MODS=true
 INSTALL_FIREFOX_ESR_PURGE_STABLE_WITH_MODS=true
+INSTALL_LIBREOFFICE_FLATPAK_PURGE_APT=true
 # INSTALL_CHROMIUM_WITH_MODS=true
-# INSTALL_LIBREOFFICE_PURGE_APT=true
 # INSTALL_BOTTLES_DOWNLOAD_WIZARD=true
 
 CHANGE_GNOME_SCREENSHOT_SAVE_LOCATION=true
@@ -125,7 +125,7 @@ install_flatpak_easy() {
     fi
     log "installing easy flatpak packages"
     flatpak remote-add --if-not-exists flathub https://dl.flathub.org/repo/flathub.flatpakrepo
-    flatpak install -y --noninteractive "${FLATPAK_PACKAGES_EASY[@]}"
+    flatpak install -y "${FLATPAK_PACKAGES_EASY[@]}"
 }
 
 vscode() {
@@ -202,11 +202,22 @@ firefox_esr_purge_stable_with_mods() {
           Pin-Priority: -1" |
     sed 's/^[[:space:]]*//' |
     sudo tee /etc/apt/preferences.d/mozillateam-ppa.pref > /dev/null
-
     update_only_apt
     sudo apt install -y firefox-esr
 
+    # Allow multitouch gestures and precision scrolling
     MOZ_USE_XINPUT2=1 | sudo tee /etc/profile.d/use-xinput2.sh
+}
+
+libreoffice_flatpak_purge_apt() {
+    if [ "${INSTALL_LIBREOFFICE_FLATPAK_PURGE_APT}" != true ] ; then
+        return 1
+    fi
+    log "Purging LibreOffice system package and installing Flatpak..."
+
+    sudo apt purge -y libreoffice*
+    update_only_apt
+    flatpak install flathub -y org.libreoffice.LibreOffice
 }
 
 set_screenshot_save_location() {
@@ -237,6 +248,7 @@ zoom_with_mods
 ttr
 kolourpaint_with_mods
 firefox_esr_purge_stable_with_mods
+libreoffice_flatpak_purge_apt
 
 set_screenshot_save_location
 
