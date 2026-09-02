@@ -22,7 +22,7 @@
 - [X] `htop`
 - [X] `steam-installer`
 
-#### Installs from base repos complex
+#### Installs from repos complex
 
 - [X] Firefox ESR (PPA)
   - [X] purge Firefox
@@ -31,6 +31,11 @@
 - [ ] Chromium
   - [ ] Make Chromium default PDF viewer
   - [ ] set Chromium settings & install extensions via policy
+- [X] VSCode (install repo)
+- [X] Zoom (use .deb)
+  - [https://zoom.us/client/latest/zoom_amd64.deb]
+  - [X] disable zoom mini-viewer
+- [ ] VirtualBox (install repo)
 
 ### Flatpak Installs
 
@@ -54,17 +59,9 @@
   - [ ] Wizard101 (separate function, attached to bottles)
 - [X] KolourPaint
   - [X] force light theme
-- [ ] LibreOffice
-  - [ ] `purge` apt version of `libreoffice*`
-
-### External Installs
-
-- [X] VSCode (install repo)
-- [X] Zoom (use .deb)
-  - [https://zoom.us/client/latest/zoom_amd64.deb]
-  - [X] disable zoom mini-viewer
-- [ ] VirtualBox (install repo)
-- [ ] firefox-esr (see above, use PPA)
+- [X] LibreOffice
+  - [X] `purge` apt version and install flatpak version of `libreoffice*`
+  - [ ] add correct `.desktop` icons, theme them and hide others
 
 ## Additional Configuration & Tweaks
 
