@@ -15,7 +15,7 @@ INSTALL_TTR=true
 INSTALL_KOLOURPAINT_WITH_MODS=true
 INSTALL_FIREFOX_ESR_PURGE_STABLE_WITH_MODS=true
 INSTALL_LIBREOFFICE_FLATPAK_PURGE_APT=true
-# INSTALL_CHROMIUM_WITH_MODS=true
+INSTALL_CHROMIUM_WITH_MODS=true
 # INSTALL_BOTTLES_DOWNLOAD_WIZARD=true
 
 CHANGE_GNOME_SCREENSHOT_SAVE_LOCATION=true
@@ -218,6 +218,16 @@ libreoffice_flatpak_purge_apt() {
     sudo apt purge -y libreoffice*
     update_only_apt
     flatpak install flathub -y org.libreoffice.LibreOffice
+}
+
+chromium_with_mods() {
+    if [ "${INSTALL_CHROMIUM_WITH_MODS}" != true ] ; then
+        return 1
+    fi
+    log "Installing Chromium with mods..."
+
+    sudo apt install chromium
+    xdg-mime default chromium-browser.desktop application/pdf
 }
 
 set_screenshot_save_location() {
