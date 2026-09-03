@@ -28,10 +28,10 @@
   - [X] purge Firefox
   - [X] enable Firefox Smooth Scrolling
   - [X] disable backspace to go back & front space to go forward
-- [ ] Chromium
+- [X] Chromium
   - [X] Make Chromium default PDF viewer
-  - [ ] set Chromium settings & install extensions via policy
-    - [ ] policies
+  - [X] set Chromium settings & install extensions via policy
+    - [X] policies
       - [X] disable request to be default browser
       - [X] clear all cookies & cache on exit
       - [X] set home page (to new tab)
@@ -46,15 +46,17 @@
       - [X] themes
         - [X] classic blue
       - [O] hide top bar
+      - [ ] create a set list of bookmarks (i.e. "Clear Browsing Data")
 - [X] VSCode (install repo)
 - [X] Zoom (use .deb)
   - [https://zoom.us/client/latest/zoom_amd64.deb]
   - [X] disable zoom mini-viewer
 - [ ] VirtualBox (install repo)
+- [ ] Android Studio (install to `/opt/`, add `.desktop` file)
 
 ### Flatpak Installs
 
-- [X] Emote
+- [X] Emote (*add launch on startup, if needed?*)
 - [X] Spotify
 - [X] Flatseal
 - [X] Authenticator
@@ -90,7 +92,7 @@
 - [ ] remove 'Delete' and add 'Make Alias' to nemo context menu
 - [ ] Create directory ~/Projects and create an alias on ~/Desktop
 - [ ] Cleanup maintenance: including `sudo apt clean && sudo apt autoremove`
-- [ ] enable timeshift
+- [ ] enable timeshift and add scheduled snapshots
 - [ ] Add templates to template folder
 - [ ] make `xed` open in a new window *every* time
 
