@@ -89,6 +89,8 @@
 - [ ] Create directory ~/Projects and create an alias on ~/Desktop
 - [ ] Cleanup maintenance: including `sudo apt clean && sudo apt autoremove`
 - [ ] enable timeshift
+- [ ] Add templates to template folder
+- [ ] make `xed` open in a new window *every* time
 
 ### Keyboard Shortcuts
 
