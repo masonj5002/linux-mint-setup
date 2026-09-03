@@ -40,12 +40,12 @@
       - [X] hide bookmarks bar
       - [X] disable autofill
       - [X] disable password manager
-      - [ ] extensions
-        - [ ] blank new tab page
-        - [ ] privacy badger
-      - [ ] themes
-        - [ ] classic blue
-      - [ ] hide top bar
+      - [X] extensions
+        - [X] blank new tab page
+        - [X] privacy badger
+      - [X] themes
+        - [X] classic blue
+      - [O] hide top bar
 - [X] VSCode (install repo)
 - [X] Zoom (use .deb)
   - [https://zoom.us/client/latest/zoom_amd64.deb]
