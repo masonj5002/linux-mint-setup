@@ -35,10 +35,11 @@
       - [X] disable request to be default browser
       - [X] clear all cookies & cache on exit
       - [X] set home page (to new tab)
-      - [ ] set search engine (from Yahoo! to DuckDuckGo)
+      - [X] set search engine (from Yahoo! to DuckDuckGo)
       - [X] modify bookmarks to empty list
       - [X] hide bookmarks bar
-      - [ ] disable autofill, password manager
+      - [X] disable autofill
+      - [X] disable password manager
       - [ ] extensions
         - [ ] blank new tab page
         - [ ] privacy badger

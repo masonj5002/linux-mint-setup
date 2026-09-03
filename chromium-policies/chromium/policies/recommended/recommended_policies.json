@@ -1,1 +1,11 @@
-{}
+{
+    "DefaultSearchProviderEnabled": true,
+    "DefaultSearchProviderName": "DuckDuckGoNoAI",
+    "DefaultSearchProviderSearchURL": "https://noai.duckduckgo.com/?q={searchTerms}",
+    "DefaultSearchProviderSuggestURL": "https://noai.duckduckgo.com{searchTerms}&kl=wt-wt",
+    "DefaultSearchProviderKeyword": "ddgnoai",
+
+    "PasswordManagerEnabled": false,
+    "AutofillAddressEnabled": false,
+    "AutofillCreditCardEnabled": false
+}
