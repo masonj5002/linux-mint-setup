@@ -3,5 +3,20 @@
     "ClearBrowsingDataOnExitList": [
         "cookies_and_other_site_data",
         "cached_images_and_files"
-    ]
+    ],
+
+    "ExtensionSettings": {
+        "pkehgijcmpdhfbdbbnkijodmdjhbjlgp": {
+            "installation_mode": "normal_installed",
+            "toolbar_pin": "force_pinned",
+            "update_url":
+                "https://clients2.google.com/service/update2/crx"
+        },
+        "jaadjnlkjnhohljficgoddcjmndjfdmi": {
+            "installation_mode": "normal_installed",
+            "update_url":
+                "https://clients2.google.com/service/update2/crx"
+        }
+    },
+    "NTPFooterExtensionAttributionEnabled": false
 }
