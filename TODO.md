@@ -34,9 +34,10 @@
     - [ ] policies
       - [X] disable request to be default browser
       - [X] clear all cookies & cache on exit
-      - [ ] set home page (to new tab)
+      - [X] set home page (to new tab)
       - [ ] set search engine (from Yahoo! to DuckDuckGo)
-      - [ ] modify bookmarks to empty list
+      - [X] modify bookmarks to empty list
+      - [X] hide bookmarks bar
       - [ ] disable autofill, password manager
       - [ ] extensions
         - [ ] blank new tab page
