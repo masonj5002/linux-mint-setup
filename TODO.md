@@ -6,7 +6,7 @@
 
 ## Initialization
 
-- [ ] abort if mint version does not match
+- [X] abort if mint version does not match
 - [X] gain `sudo` access
 - [X] set repo to Fastly
 - [X] create `apt update` and `apt upgrade function`
@@ -93,10 +93,10 @@
 - [ ] place 'Workspace switcher' on bottom bar
 - [ ] remove 'Delete' and add 'Make Alias' to nemo context menu
 - [ ] Create directory ~/Projects and create an alias on ~/Desktop
-- [ ] Cleanup maintenance: including `sudo apt clean && sudo apt autoremove`
 - [ ] enable timeshift and add scheduled snapshots
 - [ ] Add templates to template folder
 - [ ] make `xed` open in a new window *every* time
+- [ ] Cleanup maintenance: including `sudo apt clean && sudo apt autoremove`
 
 ### Keyboard Shortcuts
 
