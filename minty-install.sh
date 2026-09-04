@@ -27,11 +27,15 @@ GNOME_SCREENSHOT_SAVE_LOCATION=~/Documents/Screenshots
 # ============================================================================
 
 APT_PACKAGES_EASY=(
-    git
     font-manager
     neofetch
     htop
     steam-installer
+
+    # dev tools
+    git
+    clang
+
     # ttf-mscorefonts-installer
 )
 
