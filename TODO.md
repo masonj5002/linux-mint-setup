@@ -51,7 +51,9 @@
 - [X] Zoom (use .deb)
   - [https://zoom.us/client/latest/zoom_amd64.deb]
   - [X] disable zoom mini-viewer
-- [ ] VirtualBox (install repo)
+- [X] VirtualBox (install repo, currently version 7.2)
+  - [X] add current user to `vboxusers`
+  - [X] download and install extension pack
 - [ ] Android Studio (install to `/opt/`, add `.desktop` file)
 
 ### Flatpak Installs
@@ -120,8 +122,6 @@ nano ~/.config/zoomus.conf
 set enableMiniWindow=false
 ```
 
-- [ ] install latest virtualbox from oracle (for 24.04)
-- [ ] Firefox Smooth scrolling configs
 - [ ] add `flathub` specifier to `flatpak install scripts`
 - [ ] modify `.desktop` files to modify icons and enable fast searches
   - [ ] "Software Manager" -- add "(Store)" in description
