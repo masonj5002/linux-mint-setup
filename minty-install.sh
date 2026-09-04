@@ -281,7 +281,7 @@ virtualbox_with_ext_pack() {
     sudo tee /etc/apt/sources.list.d/virtualbox.sources > /dev/null
 
     update_only_apt
-    sudo apt install virtualbox-7.2
+    sudo apt install -y virtualbox-7.2
 
     sudo usermod -a -G vboxusers $(whoami)
 
