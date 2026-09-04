@@ -16,6 +16,7 @@ INSTALL_KOLOURPAINT_WITH_MODS=true
 INSTALL_FIREFOX_ESR_PURGE_STABLE_WITH_MODS=true
 INSTALL_LIBREOFFICE_FLATPAK_PURGE_APT=true
 INSTALL_CHROMIUM_WITH_MODS=true
+INSTALL_VIRTUALBOX_WITH_EXT_PACK=true
 # INSTALL_BOTTLES_DOWNLOAD_WIZARD=true
 
 CHANGE_GNOME_SCREENSHOT_SAVE_LOCATION=true
@@ -201,6 +202,7 @@ firefox_esr_purge_stable_with_mods() {
           Pin-Priority: -1" |
     sed 's/^[[:space:]]*//' |
     sudo tee /etc/apt/preferences.d/mozillateam-ppa.pref > /dev/null
+
     update_only_apt
     sudo apt install -y firefox-esr
 
@@ -234,6 +236,34 @@ chromium_with_mods() {
 
 }
 
+virtualbox_with_ext_pack() {
+    if [ "${INSTALL_VIRTUALBOX_WITH_EXT_PACK}" != true ] ; then
+        return 1
+    fi
+    log "Installing Virtualbox..."
+
+    wget -O- https://www.virtualbox.org/download/oracle_vbox_2016.asc |
+    sudo gpg --yes --output /usr/share/keyrings/oracle-virtualbox-2016.gpg --dearmor
+
+    echo "Types: deb
+    URIs: https://download.virtualbox.org/virtualbox/debian
+    Suites: noble
+    Components: contrib
+    Architectures: amd64
+    Signed-By: /usr/share/keyrings/oracle-virtualbox-2016.gpg" |
+    sed 's/^[[:space:]]*//' |
+    sudo tee /etc/apt/sources.list.d/virtualbox.sources > /dev/null
+
+    update_only_apt
+    sudo apt install virtualbox-7.2
+
+    sudo usermod -a -G vboxusers $(whoami)
+
+    wget https://download.virtualbox.org/virtualbox/7.2.16/Oracle_VirtualBox_Extension_Pack-7.2.16.vbox-extpack
+    echo "y" | sudo vboxmanage extpack install Oracle_VirtualBox_Extension_Pack-7.2.16.vbox-extpack
+    rm Oracle_VirtualBox_Extension_Pack-7.2.16.vbox-extpack
+}
+
 set_screenshot_save_location() {
     if [ "${CHANGE_GNOME_SCREENSHOT_SAVE_LOCATION}" != true ] ; then
         return 1
@@ -264,6 +294,7 @@ kolourpaint_with_mods
 firefox_esr_purge_stable_with_mods
 libreoffice_flatpak_purge_apt
 chromium_with_mods
+virtualbox_with_ext_pack
 
 set_screenshot_save_location
 
