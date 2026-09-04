@@ -28,11 +28,11 @@ GNOME_SCREENSHOT_SAVE_LOCATION=~/Documents/Screenshots
 
 APT_PACKAGES_EASY=(
     git
-    ttf-mscorefonts-installer
     font-manager
     neofetch
     htop
     steam-installer
+    # ttf-mscorefonts-installer
 )
 
 FLATPAK_PACKAGES_EASY=(
@@ -164,6 +164,9 @@ vscode() {
     Signed-By: /usr/share/keyrings/microsoft.gpg" |
     sed 's/^[[:space:]]*//' |
     sudo tee /etc/apt/sources.list.d/vscode.sources > /dev/null
+
+    update_only_apt
+    sudo apt install code
 }
 
 zoom_with_mods() {
