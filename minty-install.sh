@@ -166,7 +166,7 @@ vscode() {
     sudo tee /etc/apt/sources.list.d/vscode.sources > /dev/null
 
     update_only_apt
-    sudo apt install code
+    sudo apt install -y code
 }
 
 zoom_with_mods() {
