@@ -62,6 +62,12 @@ DEB_FILES=(
 )
 
 # ============================================================================
+# Misc. Variables
+# ============================================================================
+
+SUPPORTED_VERSION="zena" # 22.3 (Ubuntu 24.04 noble)
+
+# ============================================================================
 # Helper Functions
 # ==========================================================================
 
@@ -73,6 +79,19 @@ log() {
 greeting_function() {
     log "Welcome!"
     sleep 1
+}
+
+version_check() {
+    # TODO: TEST ON SYSTEM WITH WRONG VERSION
+    . /etc/os-release
+    if [ $VERSION_CODENAME != $SUPPORTED_VERSION ] ; then
+        echo "Unsupported OS Version.\nThis script supports Linux Mint $SUPPORTED_VERSION. The script will now terminate."
+        echo "The script will exit in 10 seconds..."
+        sleep 10
+        exit
+    fi
+
+    echo "You are running $NAME $VERSION. This version is supported!"
 }
 
 exit_function() {
@@ -278,6 +297,7 @@ set_screenshot_save_location() {
 # ============================================================================
 
 greeting_function
+version_check
 sudo -v
 
 fastly_repo
