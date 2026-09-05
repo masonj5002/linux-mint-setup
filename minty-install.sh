@@ -9,6 +9,7 @@ INSTALL_APT_LIST_EASY=true
 INSTALL_FLATPAK_LIST_EASY=true
 PURGE_APT_LIST_EASY=true
 
+INSTALL_TTF_FONTS=true
 INSTALL_VSCODE=true
 INSTALL_ZOOM_WITH_MODS=true
 INSTALL_TTR=true
@@ -150,6 +151,16 @@ install_flatpak_easy() {
     log "installing easy flatpak packages"
     flatpak remote-add --if-not-exists flathub https://dl.flathub.org/repo/flathub.flatpakrepo
     flatpak install -y "${FLATPAK_PACKAGES_EASY[@]}"
+}
+
+
+ttf_fonts() {
+    if [ "${INSTALL_TTF_FONTS}" != true ] ; then
+        return 1
+    fi
+
+    echo "ttf-mscorefonts-installer msttcorefonts/accepted-mscorefonts-eula select true" | sudo debconf-set-selections
+    sudo apt install -y ttf-mscorefonts-installer
 }
 
 vscode() {
@@ -315,6 +326,7 @@ purge_apt_easy
 install_apt_easy
 install_flatpak_easy
 
+ttf_fonts
 vscode
 zoom_with_mods
 ttr
