@@ -302,6 +302,7 @@ set_screenshot_save_location() {
 # ============================================================================
 # Main
 # ============================================================================
+set -e # exit immediately if a command exits with a non-zero status.
 
 greeting_function
 version_check
