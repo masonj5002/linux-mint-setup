@@ -21,7 +21,14 @@ INSTALL_VIRTUALBOX_WITH_EXT_PACK=true
 # INSTALL_BOTTLES_DOWNLOAD_WIZARD=true
 
 CHANGE_GNOME_SCREENSHOT_SAVE_LOCATION=true
+SET_CINNAMON_GTK_THEME=true
+
+# ============================================================================
+# Config
+# ============================================================================
+
 GNOME_SCREENSHOT_SAVE_LOCATION=~/Documents/Screenshots
+THEME_COLOR="Teal"
 
 # ============================================================================
 # Package Lists
@@ -306,6 +313,17 @@ set_screenshot_save_location() {
     log "changing screenshot save location to ${GNOME_SCREENSHOT_SAVE_LOCATION}"
 
     mkdir ~/Documents/Screenshots
+}
+
+cinnamon_gtk_theme() {
+    if [ "${SET_CINNAMON_GTK_THEME}" != true ] ; then
+        return 1
+    fi
+    log "setting GTK, icon, and Cinnamon theme..."
+
+    gsettings set org.cinnamon.desktop.interface gtk-theme Mint-Y-Dark-Teal
+    gsettings set org.cinnamon.desktop.interface icon-theme Mint-Y-Teal
+    gsettings set org.cinnamon.theme name Mint-Y-Dark-Teal
 }
 
 # ============================================================================

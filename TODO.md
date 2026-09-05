@@ -18,6 +18,7 @@
 - [X] `ttf-mscorefonts-installer`
   - [X] auto agree to EULA
 - [X] `git`
+  - [ ] Establish git default user name and e-mail
 - [X] `font-manager`
 - [X] `neofetch`
 - [X] `htop`
@@ -85,7 +86,7 @@
 
 ## Additional Configuration & Tweaks
 
-- [ ] Switch color scheme to 'Aqua'
+- [X] Switch color scheme to 'Teal' and 'Dark Teal'
 - [X] purge `cups-browsed`
 - [X] Set `gnome-screenshot` save location
 - [ ] Set wallpaper
