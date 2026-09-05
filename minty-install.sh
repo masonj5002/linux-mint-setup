@@ -22,6 +22,7 @@ INSTALL_VIRTUALBOX_WITH_EXT_PACK=true
 
 CHANGE_GNOME_SCREENSHOT_SAVE_LOCATION=true
 SET_CINNAMON_GTK_THEME=true
+# SET_WALLPAPER_DIRECTORY
 
 # ============================================================================
 # Config
@@ -353,6 +354,7 @@ chromium_with_mods
 virtualbox_with_ext_pack
 
 set_screenshot_save_location
+cinnamon_gtk_theme
 
 update_upgrade_apt
 exit_function
