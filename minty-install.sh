@@ -22,7 +22,7 @@ INSTALL_VIRTUALBOX_WITH_EXT_PACK=true
 
 CHANGE_GNOME_SCREENSHOT_SAVE_LOCATION=true
 SET_CINNAMON_GTK_THEME=true
-# SET_WALLPAPER_DIRECTORY
+SET_WALLPAPER_SLIDESHOW=true
 
 # ============================================================================
 # Config
@@ -30,6 +30,7 @@ SET_CINNAMON_GTK_THEME=true
 
 GNOME_SCREENSHOT_SAVE_LOCATION=~/Documents/Screenshots
 THEME_COLOR="Teal"
+WALLPAPER_DIRECTORY_LOCATION=~/Pictures
 
 # ============================================================================
 # Package Lists
@@ -327,6 +328,17 @@ cinnamon_gtk_theme() {
     gsettings set org.cinnamon.theme name Mint-Y-Dark-Teal
 }
 
+wallpaper_slideshow() {
+    if [ "${SET_WALLPAPER_SLIDESHOW}" != true ] ; then
+        return 1
+    fi
+
+    cp -r assets/Wallpapers $WALLPAPER_DIRECTORY_LOCATION
+    gsettings set org.cinnamon.desktop.background.slideshow image-source directory://$WALLPAPER_DIRECTORY_LOCATION/Wallpapers
+    gsettings set org.cinnamon.desktop.background.slideshow slideshow-enabled true
+
+}
+
 # ============================================================================
 # Main
 # ============================================================================
@@ -355,6 +367,7 @@ virtualbox_with_ext_pack
 
 set_screenshot_save_location
 cinnamon_gtk_theme
+wallpaper_slideshow
 
 update_upgrade_apt
 exit_function

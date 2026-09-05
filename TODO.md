@@ -89,7 +89,7 @@
 - [X] Switch color scheme to 'Teal' and 'Dark Teal'
 - [X] purge `cups-browsed`
 - [X] Set `gnome-screenshot` save location
-- [ ] Set wallpaper
+- [X] Set wallpaper -- set to directory
 - [ ] install Cinnamenu & move to corner
   - [ ] remove mint menu from bottom bar
 - [ ] place 'Workspace switcher' on bottom bar
@@ -99,6 +99,7 @@
 - [ ] Add templates to template folder
 - [ ] make `xed` open in a new window *every* time
 - [ ] Cleanup maintenance: including `sudo apt clean && sudo apt autoremove`
+- [ ] modify `.desktop` files
 
 ### Keyboard Shortcuts
 
