@@ -16,6 +16,7 @@
 ### Installs from Base Repos
 
 - [X] `ttf-mscorefonts-installer`
+  - [X] auto agree to EULA
 - [X] `git`
 - [X] `font-manager`
 - [X] `neofetch`
