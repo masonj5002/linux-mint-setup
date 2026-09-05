@@ -36,8 +36,6 @@ APT_PACKAGES_EASY=(
     # dev tools
     git
     clang
-
-    # ttf-mscorefonts-installer
 )
 
 FLATPAK_PACKAGES_EASY=(
