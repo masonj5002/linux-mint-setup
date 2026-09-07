@@ -23,6 +23,7 @@ INSTALL_VIRTUALBOX_WITH_EXT_PACK=true
 CHANGE_GNOME_SCREENSHOT_SAVE_LOCATION=true
 SET_CINNAMON_GTK_THEME=true
 SET_WALLPAPER_SLIDESHOW=true
+INSTALL_CINNAMENU_APPLET=true
 
 # ============================================================================
 # Config
@@ -339,6 +340,26 @@ wallpaper_slideshow() {
 
 }
 
+cinnamenu_applet() {
+    if [ "${INSTALL_CINNAMENU_APPLET}" != true ] ; then
+        return 1
+    fi
+
+    wget https://cinnamon-spices.linuxmint.com/files/applets/Cinnamenu@json.zip
+    unzip Cinnamenu@json.zip -d ~/.local/share/cinnamon/applets
+    rm Cinnamenu@json.zip
+
+    # backup current `org.cinnamon enabled-applets` value
+    gsettings get org.cinnamon enabled-applets > enabled-applets-backup.ini
+    cp enabled-applets-backup.ini enabled-applets-cinnamenu.ini
+
+    for file in enabled-applets-cinnamenu.ini ; do
+        sed -i 's/menu@cinnamon.org/Cinnamenu@json/g' "$file"
+    done
+
+    gsettings set org.cinnamon enabled-applets "$(cat enabled-applets-cinnamenu.ini)"
+}
+
 # ============================================================================
 # Main
 # ============================================================================
@@ -368,6 +389,7 @@ virtualbox_with_ext_pack
 set_screenshot_save_location
 cinnamon_gtk_theme
 wallpaper_slideshow
+cinnamenu_applet
 
 update_upgrade_apt
 exit_function

@@ -90,8 +90,10 @@
 - [X] purge `cups-browsed`
 - [X] Set `gnome-screenshot` save location
 - [X] Set wallpaper -- set to directory
-- [ ] install Cinnamenu & move to corner
-  - [ ] remove mint menu from bottom bar
+- [ ] Cinnamenu
+  - [ ] import Cinnamenu preferences
+  - [X] install Cinnamenu & move to corner
+    - [X] add Cinnamenu and remove mint menu from bottom bar
 - [ ] place 'Workspace switcher' on bottom bar
 - [ ] remove 'Delete' and add 'Make Alias' to nemo context menu
 - [ ] Create directory ~/Projects and create an alias on ~/Desktop
