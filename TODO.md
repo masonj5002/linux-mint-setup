@@ -92,6 +92,7 @@
 - [X] Set wallpaper -- set to directory
 - [ ] Cinnamenu
   - [ ] import Cinnamenu preferences
+    - [X] set custom icon logo, size, label
   - [X] install Cinnamenu & move to corner
     - [X] add Cinnamenu and remove mint menu from bottom bar
 - [ ] place 'Workspace switcher' on bottom bar

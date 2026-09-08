@@ -358,6 +358,24 @@ cinnamenu_applet() {
     done
 
     gsettings set org.cinnamon enabled-applets "$(cat enabled-applets-cinnamenu.ini)"
+
+    # import preferences
+    sudo apt install jq
+
+    CINNAMENU_SETTINGS_DIRECTORY=~/.config/cinnamon/spices/Cinnamenu@json
+
+    ## custom icon
+    jq '
+    ."menu-icon-custom".value = true |
+    ."menu-icon".value = "start-here-symbolic" |
+    ."menu-icon-size-custom".value = true |
+    ."menu-icon-size".value = 32 |
+    ."menu-label".value = ""
+    ' $CINNAMENU_SETTINGS_DIRECTORY/0.json > temp.json
+    mv temp.json 0.json
+
+    ## menu animations
+    
 }
 
 # ============================================================================
