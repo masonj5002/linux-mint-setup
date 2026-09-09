@@ -158,7 +158,7 @@ install_flatpak_easy() {
     fi
     log "installing easy flatpak packages"
     flatpak remote-add --if-not-exists flathub https://dl.flathub.org/repo/flathub.flatpakrepo
-    flatpak install -y "${FLATPAK_PACKAGES_EASY[@]}"
+    flatpak install --noninteractive -y "${FLATPAK_PACKAGES_EASY[@]}"
 }
 
 
@@ -216,7 +216,7 @@ ttr() {
     log "Installing TTR..."
 
     TTR_URL=https://cdn.toontownrewritten.com/launcher/linux/launcher.flatpakref
-    sudo flatpak install --system -y ${TTR_URL}
+    sudo flatpak install --noninteractive --system -y ${TTR_URL}
 }
 
 kolourpaint_with_mods() {
@@ -263,7 +263,7 @@ libreoffice_flatpak_purge_apt() {
 
     sudo apt purge -y libreoffice*
     update_only_apt
-    flatpak install flathub -y org.libreoffice.LibreOffice
+    flatpak install flathub --noninteractive -y org.libreoffice.LibreOffice
 }
 
 chromium_with_mods() {
