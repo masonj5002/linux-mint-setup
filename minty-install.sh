@@ -333,6 +333,7 @@ wallpaper_slideshow() {
     if [ "${SET_WALLPAPER_SLIDESHOW}" != true ] ; then
         return 1
     fi
+    log "setting the wallpaper directory..."
 
     cp -r assets/Wallpapers $WALLPAPER_DIRECTORY_LOCATION
     gsettings set org.cinnamon.desktop.background.slideshow image-source directory://$WALLPAPER_DIRECTORY_LOCATION/Wallpapers
@@ -344,6 +345,7 @@ cinnamenu_applet() {
     if [ "${INSTALL_CINNAMENU_APPLET}" != true ] ; then
         return 1
     fi
+    log "installing and configuring Cinnamenu..."
 
     wget https://cinnamon-spices.linuxmint.com/files/applets/Cinnamenu@json.zip
     unzip Cinnamenu@json.zip -d ~/.local/share/cinnamon/applets
@@ -375,6 +377,16 @@ cinnamenu_applet() {
     mv temp.json $CINNAMENU_SETTINGS_DIRECTORY/0.json
 
     ## enable menu animations
+    jq '
+    ."enable-animation".value = true 
+    ' $CINNAMENU_SETTINGS_DIRECTORY/0.json > temp.json
+    mv temp.json $CINNAMENU_SETTINGS_DIRECTORY/0.json
+
+    ## disable category-click
+    jq '
+    ."category-click".value = false 
+    ' $CINNAMENU_SETTINGS_DIRECTORY/0.json > temp.json
+    mv temp.json $CINNAMENU_SETTINGS_DIRECTORY/0.json
     
     ## web search option (Google = 1, ... DDG = 6 )
     jq '
