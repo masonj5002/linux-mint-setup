@@ -131,7 +131,7 @@ set enableMiniWindow=false
 - [ ] add `flathub` specifier to `flatpak install scripts`
 - [ ] modify `.desktop` files to modify icons and enable fast searches
   - [ ] "Software Manager" -- add "(Store)" in description
-  - [ ] add themed icons for flatpaks
+  - [ ] add themed icons for some flatpaks
 
 ``` bash
 MOZ_USE_XINPUT2=1 | sudo tee /etc/profile.d/use-xinput2.sh
@@ -141,11 +141,6 @@ MOZ_USE_XINPUT2=1 | sudo tee /etc/profile.d/use-xinput2.sh
 flatpak override --user --env=GTK_THEME=Adwaita:light org.kde.kolourpaint
 ```
 
-
-- [ ] Change default save screenshot location to ~/Documents/Screenshots
-
 ``` bash
 gsettings set org.gnome.gnome-screenshot auto-save-directory "file:///home/mason/Documents/Screenshots"
 ```
-
-- [ ] Set specific Desktop wallpaper (single photo or slideshow)
