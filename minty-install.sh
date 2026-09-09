@@ -388,11 +388,23 @@ cinnamenu_applet() {
     ' $CINNAMENU_SETTINGS_DIRECTORY/0.json > temp.json
     mv temp.json $CINNAMENU_SETTINGS_DIRECTORY/0.json
     
-    ## web search option (Google = 1, ... DDG = 6 )
+    ## web search option (DDG: Google = 1, ... DDG = 6 )
     jq '
     ."web-search-option".value = 6 
     ' $CINNAMENU_SETTINGS_DIRECTORY/0.json > temp.json
     mv temp.json $CINNAMENU_SETTINGS_DIRECTORY/0.json
+
+    ## Disable "Show recent items", "Show home folder", "Show Emoji Category"
+    ## Open to 'Places' (3)
+    jq '
+    ."show-recents-category".value = false |
+    ."show-home-folder-category".value = false |
+    ."show-emoji-category".value = false |
+    ."open-on-category".value = 3
+    ' $CINNAMENU_SETTINGS_DIRECTORY/0.json > temp.json
+    mv temp.json $CINNAMENU_SETTINGS_DIRECTORY/0.json
+
+    
 }
 
 # ============================================================================
