@@ -360,7 +360,7 @@ cinnamenu_applet() {
     gsettings set org.cinnamon enabled-applets "$(cat enabled-applets-cinnamenu.ini)"
 
     # import preferences
-    sudo apt install jq
+    sudo apt install -y jq
 
     CINNAMENU_SETTINGS_DIRECTORY=~/.config/cinnamon/spices/Cinnamenu@json
 
@@ -372,10 +372,15 @@ cinnamenu_applet() {
     ."menu-icon-size".value = 32 |
     ."menu-label".value = ""
     ' $CINNAMENU_SETTINGS_DIRECTORY/0.json > temp.json
-    mv temp.json 0.json
+    mv temp.json $CINNAMENU_SETTINGS_DIRECTORY/0.json
 
-    ## menu animations
+    ## enable menu animations
     
+    ## web search option (Google = 1, ... DDG = 6 )
+    jq '
+    ."web-search-option".value = 6 
+    ' $CINNAMENU_SETTINGS_DIRECTORY/0.json > temp.json
+    mv temp.json $CINNAMENU_SETTINGS_DIRECTORY/0.json
 }
 
 # ============================================================================
