@@ -32,6 +32,12 @@ INSTALL_CINNAMENU_APPLET=true
 GNOME_SCREENSHOT_SAVE_LOCATION=~/Documents/Screenshots
 THEME_COLOR="Teal"
 WALLPAPER_DIRECTORY_LOCATION=~/Pictures
+FAVORITE_APPS_LIST=\
+"['chromium-browser.desktop', 'mintinstall.desktop', \
+'virtualbox.desktop', 'com.rafaelmardojai.Blanket.desktop:flatpak', \
+'de.haeckerfelix.Shortwave.desktop:flatpak', 'org.x.editor.desktop', \
+'org.gnome.Calculator.desktop', 'org.gnome.Calendar.desktop', \
+'cinnamon-settings.desktop']"
 
 # ============================================================================
 # Package Lists
@@ -408,7 +414,8 @@ cinnamenu_applet() {
     ' $CINNAMENU_SETTINGS_DIRECTORY/0.json > temp.json
     mv temp.json $CINNAMENU_SETTINGS_DIRECTORY/0.json
 
-    
+    # Set favorites list
+    gsettings set org.cinnamon favorite-apps "$FAVORITE_APPS_LIST"
 }
 
 # ============================================================================
