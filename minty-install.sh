@@ -41,9 +41,9 @@ APT_PACKAGES_EASY=(
     font-manager
     neofetch
     htop
-    steam-installer
+    # steam-installer
 
-    # dev tools
+    ## dev tools
     git
     clang
 )
@@ -87,6 +87,7 @@ SUPPORTED_VERSION="zena" # 22.3 (Ubuntu 24.04 noble)
 log() {
     echo
     echo "==> $1"
+    sleep 0.5
 }
 
 greeting_function() {
@@ -158,7 +159,7 @@ install_flatpak_easy() {
     fi
     log "installing easy flatpak packages"
     flatpak remote-add --if-not-exists flathub https://dl.flathub.org/repo/flathub.flatpakrepo
-    flatpak install --noninteractive -y "${FLATPAK_PACKAGES_EASY[@]}"
+    flatpak install flathub --noninteractive -y "${FLATPAK_PACKAGES_EASY[@]}"
 }
 
 
@@ -166,6 +167,7 @@ ttf_fonts() {
     if [ "${INSTALL_TTF_FONTS}" != true ] ; then
         return 1
     fi
+    log "installing Microsoft fonts..."
 
     echo "ttf-mscorefonts-installer msttcorefonts/accepted-mscorefonts-eula select true" | sudo debconf-set-selections
     sudo apt install -y ttf-mscorefonts-installer
@@ -202,7 +204,8 @@ zoom_with_mods() {
     sudo apt install -y ./zoom_amd64.deb &&
     rm zoom_amd64.deb
 
-    timeout -s INT 8s zoom
+    timeout -s INT 8s zoom &
+    sleep 10
 
     for file in ~/.config/zoomus.conf ; do
         sed -i 's/enableMiniWindow=true/enableMiniWindow=false/g' "$file"
@@ -225,7 +228,7 @@ kolourpaint_with_mods() {
     fi
     log "Installing KolourPaint..."
 
-    flatpak install flathub -y org.kde.kolourpaint
+    flatpak install flathub  --noninteractive -y org.kde.kolourpaint
     sudo flatpak override --system --env=GTK_THEME=Adwaita:light org.kde.kolourpaint
 }
 
@@ -263,7 +266,8 @@ libreoffice_flatpak_purge_apt() {
 
     sudo apt purge -y libreoffice*
     update_only_apt
-    flatpak install flathub --noninteractive -y org.libreoffice.LibreOffice
+    flatpak install flathub --noninteractive -y org.libreoffice.LibreOffice \
+                                                org.libreoffice.LibreOffice.Help
 }
 
 chromium_with_mods() {
