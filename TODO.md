@@ -26,10 +26,12 @@
 
 #### Installs from repos complex
 
-- [X] Firefox ESR (PPA)
+- [ ] Firefox ESR (PPA)
   - [X] purge Firefox
   - [X] enable Firefox Smooth Scrolling
   - [X] disable backspace to go back & front space to go forward
+  - [ ] add `firefox-esr` to "taskbar"
+  - [ ] prevent `mint-chat` (matrix) from being removed
 - [X] Chromium
   - [X] Make Chromium default PDF viewer
   - [X] set Chromium settings & install extensions via policy
