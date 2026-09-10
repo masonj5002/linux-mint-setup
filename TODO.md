@@ -92,9 +92,10 @@
 - [X] purge `cups-browsed`
 - [X] Set `gnome-screenshot` save location
 - [X] Set wallpaper -- set to directory
-- [ ] Cinnamenu
+- [X] Cinnamenu
   - [ ] import Cinnamenu preferences
     - [X] set custom icon logo, size, label
+    - [X] set Cinnamon "Favorite Apps" list
   - [X] install Cinnamenu & move to corner
     - [X] add Cinnamenu and remove mint menu from bottom bar
 - [ ] place 'Workspace switcher' on bottom bar
@@ -130,7 +131,7 @@ nano ~/.config/zoomus.conf
 set enableMiniWindow=false
 ```
 
-- [ ] add `flathub` specifier to `flatpak install scripts`
+- [X] add `flathub` specifier to `flatpak install scripts`
 - [ ] modify `.desktop` files to modify icons and enable fast searches
   - [ ] "Software Manager" -- add "(Store)" in description
   - [ ] add themed icons for some flatpaks
