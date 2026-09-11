@@ -102,6 +102,7 @@
 - [ ] place 'Workspace switcher' on bottom bar
   - [X] basic functionality
   - [X] swap `cinnamenu_applet` and `workspace_switcher_applet` order
+  - [X] set number of workspaces to 2
 - [ ] remove 'Delete' and add 'Make Alias' to nemo context menu
 - [ ] Create directory ~/Projects and create an alias on ~/Desktop
 - [ ] enable timeshift and add scheduled snapshots
