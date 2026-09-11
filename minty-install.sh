@@ -25,6 +25,7 @@ SET_CINNAMON_GTK_THEME=true
 SET_WALLPAPER_SLIDESHOW=true
 ADD_WORKSPACE_SWITCHER_APPLET=true
 INSTALL_CINNAMENU_APPLET=true
+ADD_KEYBOARD_SHORTCUTS=true
 
 # ============================================================================
 # Config
@@ -139,7 +140,7 @@ exit_function() {
 
 fastly_repo() {
     if [ "$SWITCH_TO_FASTLY_REPO" != true ] ; then
-        return 1
+        return 0
     fi
     log "Switching to Fastly CDN..."
     for file in /etc/apt/sources.list.d/official-package-repositories.list ; do
@@ -162,7 +163,7 @@ update_upgrade_apt() {
 
 purge_apt_easy() {
     if [ "$PURGE_APT_LIST_EASY" != true ] ; then
-        return 1
+        return 0
     fi
     log "purging easy apt packages"
     sudo apt purge -y "${APT_PURGE_EASY[@]}"
@@ -171,7 +172,7 @@ purge_apt_easy() {
 
 install_apt_easy() {
     if [ "$INSTALL_APT_LIST_EASY" != true ] ; then
-        return 1
+        return 0
     fi
     log "Installing easy apt packages..."
     sudo apt install -y "${APT_PACKAGES_EASY[@]}"
@@ -179,7 +180,7 @@ install_apt_easy() {
 
 install_flatpak_easy() {
     if [ "$INSTALL_FLATPAK_LIST_EASY" != true ] ; then
-        return 1
+        return 0
     fi
     log "installing easy flatpak packages"
     flatpak remote-add --if-not-exists flathub https://dl.flathub.org/repo/flathub.flatpakrepo
@@ -189,7 +190,7 @@ install_flatpak_easy() {
 
 ttf_fonts() {
     if [ "${INSTALL_TTF_FONTS}" != true ] ; then
-        return 1
+        return 0
     fi
     log "installing Microsoft fonts..."
 
@@ -199,7 +200,7 @@ ttf_fonts() {
 
 vscode() {
     if [ "${INSTALL_VSCODE}" != true ] ; then
-        return 1
+        return 0
     fi
     log "installing VSCode..."
 
@@ -220,7 +221,7 @@ vscode() {
 
 zoom_with_mods() {
     if [ "${INSTALL_ZOOM_WITH_MODS}" != true ] ; then
-        return 1
+        return 0
     fi
     log "Installing Zoom with mods..."
 
@@ -238,7 +239,7 @@ zoom_with_mods() {
 
 ttr() {
     if [ "${INSTALL_TTR}" != true ] ; then
-        return 1
+        return 0
     fi
     log "Installing TTR..."
 
@@ -248,7 +249,7 @@ ttr() {
 
 kolourpaint_with_mods() {
     if [ "${INSTALL_KOLOURPAINT_WITH_MODS}" != true ] ; then
-        return 1
+        return 0
     fi
     log "Installing KolourPaint..."
 
@@ -258,7 +259,7 @@ kolourpaint_with_mods() {
 
 firefox_esr_purge_stable_with_mods() {
     if [ "${INSTALL_FIREFOX_ESR_PURGE_STABLE_WITH_MODS}" != true ] ; then
-        return 1
+        return 0
     fi
     log "Purging Firefox Stable and installing Firefox ESR with mods..."
     
@@ -284,7 +285,7 @@ firefox_esr_purge_stable_with_mods() {
 
 libreoffice_flatpak_purge_apt() {
     if [ "${INSTALL_LIBREOFFICE_FLATPAK_PURGE_APT}" != true ] ; then
-        return 1
+        return 0
     fi
     log "Purging LibreOffice system package and installing Flatpak..."
 
@@ -296,7 +297,7 @@ libreoffice_flatpak_purge_apt() {
 
 chromium_with_mods() {
     if [ "${INSTALL_CHROMIUM_WITH_MODS}" != true ] ; then
-        return 1
+        return 0
     fi
     log "Installing Chromium with mods..."
 
@@ -311,7 +312,7 @@ chromium_with_mods() {
 
 virtualbox_with_ext_pack() {
     if [ "${INSTALL_VIRTUALBOX_WITH_EXT_PACK}" != true ] ; then
-        return 1
+        return 0
     fi
     log "Installing Virtualbox..."
 
@@ -339,7 +340,7 @@ virtualbox_with_ext_pack() {
 
 set_screenshot_save_location() {
     if [ "${CHANGE_GNOME_SCREENSHOT_SAVE_LOCATION}" != true ] ; then
-        return 1
+        return 0
     fi
     log "changing screenshot save location to ${GNOME_SCREENSHOT_SAVE_LOCATION}"
 
@@ -348,7 +349,7 @@ set_screenshot_save_location() {
 
 cinnamon_gtk_theme() {
     if [ "${SET_CINNAMON_GTK_THEME}" != true ] ; then
-        return 1
+        return 0
     fi
     log "setting GTK, icon, and Cinnamon theme..."
 
@@ -359,7 +360,7 @@ cinnamon_gtk_theme() {
 
 wallpaper_slideshow() {
     if [ "${SET_WALLPAPER_SLIDESHOW}" != true ] ; then
-        return 1
+        return 0
     fi
     log "setting the wallpaper directory..."
 
@@ -371,7 +372,7 @@ wallpaper_slideshow() {
 
 workspace_switcher_applet() {
     if [ "${ADD_WORKSPACE_SWITCHER_APPLET}" != true ] ; then
-        return 1
+        return 0
     fi
     log "Adding Workspace Switcher Applet..."
 
@@ -393,7 +394,7 @@ workspace_switcher_applet() {
 
 cinnamenu_applet() {
     if [ "${INSTALL_CINNAMENU_APPLET}" != true ] ; then
-        return 1
+        return 0
     fi
     log "installing and configuring Cinnamenu..."
 
@@ -456,6 +457,14 @@ cinnamenu_applet() {
 
     # Set favorites list
     gsettings set org.cinnamon favorite-apps "$FAVORITE_APPS_LIST"
+}
+
+ADD_KEYBOARD_SHORTCUTS
+keyboard_shortcuts() {
+    if [ "${INSTALL_CINNAMENU_APPLET}" != true ] ; then
+        return 0
+    fi
+    log "setting keyboard shortcuts..."
 }
 
 # ============================================================================
