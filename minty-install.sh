@@ -390,7 +390,7 @@ cinnamenu_applet() {
     gsettings set org.cinnamon enabled-applets "$(cat enabled-applets-cinnamenu.ini)"
 
     # import preferences
-    sudo apt install -y jq
+    sudo apt install -y jq # Command-line JSON processor
 
     CINNAMENU_SETTINGS_DIRECTORY=~/.config/cinnamon/spices/Cinnamenu@json
 
