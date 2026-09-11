@@ -138,7 +138,9 @@ set enableMiniWindow=false
 - [X] add `flathub` specifier to `flatpak install scripts`
 - [ ] modify `.desktop` files to modify icons and enable fast searches
   - [ ] "Software Manager" -- add "(Store)" in description
-  - [ ] add themed icons for some flatpaks
+  - [ ] add themed icons for some flatpak(s)
+  - [ ] move variables to top to follow best practice
+  - [ ] move configurable options to separate file
 
 ``` bash
 MOZ_USE_XINPUT2=1 | sudo tee /etc/profile.d/use-xinput2.sh
