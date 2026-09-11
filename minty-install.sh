@@ -23,8 +23,8 @@ INSTALL_VIRTUALBOX_WITH_EXT_PACK=true
 CHANGE_GNOME_SCREENSHOT_SAVE_LOCATION=true
 SET_CINNAMON_GTK_THEME=true
 SET_WALLPAPER_SLIDESHOW=true
-INSTALL_CINNAMENU_APPLET=true
 ADD_WORKSPACE_SWITCHER_APPLET=true
+INSTALL_CINNAMENU_APPLET=true
 
 # ============================================================================
 # Config
@@ -369,6 +369,27 @@ wallpaper_slideshow() {
 
 }
 
+workspace_switcher_applet() {
+    if [ "${ADD_WORKSPACE_SWITCHER_APPLET}" != true ] ; then
+        return 1
+    fi
+    log "Adding Workspace Switcher Applet..."
+
+    gsettings get org.cinnamon enabled-applets > enabled-applets-backup-1.ini
+    gsettings set org.cinnamon enabled-applets "$WORKSPACE_SWITCHER_PANEL"
+
+    sudo apt install -y jq # jq: command-line JSON processor
+
+    WORKSPACE_SWITCHER_SETTINGS_DIRECTORY=~/.config/cinnamon/spices/workspace-switcher@cinnamon.org
+
+    jq '
+    ."display-type".value = "buttons"
+    ' $WORKSPACE_SWITCHER_SETTINGS_DIRECTORY/15.json > temp.json
+    mv temp.json $WORKSPACE_SWITCHER_SETTINGS_DIRECTORY/15.json
+
+    
+}
+
 cinnamenu_applet() {
     if [ "${INSTALL_CINNAMENU_APPLET}" != true ] ; then
         return 1
@@ -390,7 +411,7 @@ cinnamenu_applet() {
     gsettings set org.cinnamon enabled-applets "$(cat enabled-applets-cinnamenu.ini)"
 
     # import preferences
-    sudo apt install -y jq # Command-line JSON processor
+    sudo apt install -y jq # jq: command-line JSON processor
 
     CINNAMENU_SETTINGS_DIRECTORY=~/.config/cinnamon/spices/Cinnamenu@json
 
@@ -436,16 +457,6 @@ cinnamenu_applet() {
     gsettings set org.cinnamon favorite-apps "$FAVORITE_APPS_LIST"
 }
 
-workspace_switcher_applet() {
-    if [ "${ADD_WORKSPACE_SWITCHER_APPLET}" != true ] ; then
-        return 1
-    fi
-    log "Adding Workspace Switcher Applet..."
-
-    gsettings get org.cinnamon enabled-applets > enabled-applets-backup-1.ini
-    gsettings set org.cinnamon enabled-applets "$WORKSPACE_SWITCHER_PANEL"
-}
-
 # ============================================================================
 # Main
 # ============================================================================
@@ -475,8 +486,8 @@ virtualbox_with_ext_pack
 set_screenshot_save_location
 cinnamon_gtk_theme
 wallpaper_slideshow
-cinnamenu_applet
 workspace_switcher_applet
+cinnamenu_applet
 
 update_upgrade_apt
 exit_function
