@@ -7,6 +7,7 @@
 ## Initialization
 
 - [X] abort if mint version does not match
+- [ ] script only runs if script is in current directory (or similar fix)
 - [X] gain `sudo` access
 - [X] set repo to Fastly
 - [X] create `apt update` and `apt upgrade function`
@@ -99,6 +100,8 @@
   - [X] install Cinnamenu & move to corner
     - [X] add Cinnamenu and remove mint menu from bottom bar
 - [ ] place 'Workspace switcher' on bottom bar
+  - [X] basic functionality
+  - [ ] swap `cinnamenu_applet` and `workspace_switcher_applet` order
 - [ ] remove 'Delete' and add 'Make Alias' to nemo context menu
 - [ ] Create directory ~/Projects and create an alias on ~/Desktop
 - [ ] enable timeshift and add scheduled snapshots
@@ -106,6 +109,7 @@
 - [ ] make `xed` open in a new window *every* time
 - [ ] Cleanup maintenance: including `sudo apt clean && sudo apt autoremove`
 - [ ] modify `.desktop` files
+- [ ] Open new windows in 'center' as opposed to 'automatic'
 
 ### Keyboard Shortcuts
 

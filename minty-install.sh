@@ -24,6 +24,7 @@ CHANGE_GNOME_SCREENSHOT_SAVE_LOCATION=true
 SET_CINNAMON_GTK_THEME=true
 SET_WALLPAPER_SLIDESHOW=true
 INSTALL_CINNAMENU_APPLET=true
+ADD_WORKSPACE_SWITCHER_APPLET=true
 
 # ============================================================================
 # Config
@@ -85,6 +86,23 @@ DEB_FILES=(
 # ============================================================================
 
 SUPPORTED_VERSION="zena" # 22.3 (Ubuntu 24.04 noble)
+
+WORKSPACE_SWITCHER_PANEL="['panel1:left:0:menu@cinnamon.org:0', \
+'panel1:left:1:separator@cinnamon.org:1', \
+'panel1:left:2:grouped-window-list@cinnamon.org:2', \
+'panel1:right:1:systray@cinnamon.org:3', \
+'panel1:right:2:xapp-status@cinnamon.org:4', \
+'panel1:right:3:notifications@cinnamon.org:5', \
+'panel1:right:4:printers@cinnamon.org:6', \
+'panel1:right:5:removable-drives@cinnamon.org:7', \
+'panel1:right:6:keyboard@cinnamon.org:8', \
+'panel1:right:7:favorites@cinnamon.org:9', \
+'panel1:right:8:network@cinnamon.org:10', \
+'panel1:right:9:sound@cinnamon.org:11', \
+'panel1:right:10:power@cinnamon.org:12', \
+'panel1:right:11:calendar@cinnamon.org:13', \
+'panel1:right:12:cornerbar@cinnamon.org:14', \
+'panel1:right:0:workspace-switcher@cinnamon.org:15']"
 
 # ============================================================================
 # Helper Functions
@@ -362,8 +380,8 @@ cinnamenu_applet() {
     rm Cinnamenu@json.zip
 
     # backup current `org.cinnamon enabled-applets` value
-    gsettings get org.cinnamon enabled-applets > enabled-applets-backup.ini
-    cp enabled-applets-backup.ini enabled-applets-cinnamenu.ini
+    gsettings get org.cinnamon enabled-applets > enabled-applets-backup-2.ini
+    cp enabled-applets-backup-2.ini enabled-applets-cinnamenu.ini
 
     for file in enabled-applets-cinnamenu.ini ; do
         sed -i 's/menu@cinnamon.org/Cinnamenu@json/g' "$file"
@@ -418,6 +436,16 @@ cinnamenu_applet() {
     gsettings set org.cinnamon favorite-apps "$FAVORITE_APPS_LIST"
 }
 
+workspace_switcher_applet() {
+    if [ "${ADD_WORKSPACE_SWITCHER_APPLET}" != true ] ; then
+        return 1
+    fi
+    log "Adding Workspace Switcher Applet..."
+
+    gsettings get org.cinnamon enabled-applets > enabled-applets-backup-1.ini
+    gsettings set org.cinnamon enabled-applets "$WORKSPACE_SWITCHER_PANEL"
+}
+
 # ============================================================================
 # Main
 # ============================================================================
@@ -448,6 +476,7 @@ set_screenshot_save_location
 cinnamon_gtk_theme
 wallpaper_slideshow
 cinnamenu_applet
+workspace_switcher_applet
 
 update_upgrade_apt
 exit_function
