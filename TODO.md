@@ -99,7 +99,7 @@
     - [X] set Cinnamon "Favorite Apps" list
   - [X] install Cinnamenu & move to corner
     - [X] add Cinnamenu and remove mint menu from bottom bar
-- [ ] place 'Workspace switcher' on bottom bar
+- [X] place 'Workspace switcher' on bottom bar
   - [X] basic functionality
   - [X] swap `cinnamenu_applet` and `workspace_switcher_applet` order
   - [X] set number of workspaces to 2
@@ -114,19 +114,24 @@
 
 ### Keyboard Shortcuts
 
-- [ ] set keyboard shortcuts
+- [X] set keyboard shortcuts below
 
 ``` bash
-fullscreen -mode     --> ALT + F
-gnome-system-monitor --> CTRL + SHIFT + ESC
-nemo                 --> CTRL + ALT + N
 firefox              --> CTRL + ALT + F
+nemo                 --> CTRL + ALT + N
+gnome-system-monitor --> CTRL + SHIFT + ESC
 chromium             --> CTRL + ALT + C
 code                 --> CTRL + ALT + V
 spotify-client       --> CTRL + ALT + S
 discord              --> CTRL + ALT + D
 LibreOffice Writer   --> CTRL + ALT + W
-always-on-top        --> 'Settings' key
+
+Black Screen         --> CTRL + ALT + B
+
+fullscreen -mode     --> ALT + F                
+minimize             --> ALT + A                ✅
+always-on-top        --> 'Settings' key # Alt + Q
+
 ```
 
 ## Misc
