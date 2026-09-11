@@ -291,7 +291,6 @@ libreoffice_flatpak_purge_apt() {
     log "Purging LibreOffice system package and installing Flatpak..."
 
     sudo apt purge -y libreoffice*
-    update_only_apt
     flatpak install flathub --noninteractive -y org.libreoffice.LibreOffice \
                                                 org.libreoffice.LibreOffice.Help
 }
