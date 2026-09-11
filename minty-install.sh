@@ -134,6 +134,7 @@ version_check() {
 }
 
 exit_function() {
+    cinnamon --replace 2>&1 >/dev/null & disown
     log "Goodbye! Please reboot!"
     sleep 1
 }
@@ -459,12 +460,73 @@ cinnamenu_applet() {
     gsettings set org.cinnamon favorite-apps "$FAVORITE_APPS_LIST"
 }
 
-ADD_KEYBOARD_SHORTCUTS
 keyboard_shortcuts() {
-    if [ "${INSTALL_CINNAMENU_APPLET}" != true ] ; then
+    if [ "${ADD_KEYBOARD_SHORTCUTS}" != true ] ; then
         return 0
     fi
     log "setting keyboard shortcuts..."
+    
+    CUSTOM_KEYBINDING_SETTING="org.cinnamon.desktop.keybindings.custom-keybinding:/org/cinnamon/desktop/keybindings/custom-keybindings"
+
+    # "Windows"
+    gsettings set org.cinnamon.desktop.keybindings.wm toggle-fullscreen "['<Alt>f']"
+    gsettings set org.cinnamon.desktop.keybindings.wm minimize "['<Alt>a']"
+    gsettings set org.cinnamon.desktop.keybindings.wm toggle-above "['<Alt>q']" # "always-on-top"
+
+    # 'Special Key to Move and Resize Windows'
+    gsettings set org.cinnamon.desktop.wm.preferences mouse-button-modifier '<Super>'
+    
+    # Open Windows to Center
+    ## WRONG FUNCTION --- FIX
+    gsettings set org.cinnamon.muffin placement-mode 'center'
+
+    # Custom Keyboard Shortcuts
+    gsettings set org.cinnamon.desktop.keybindings custom-list \
+        "['custom0', \
+          'custom1', \
+          'custom2', \
+          'custom3', \
+          'custom4', \
+          'custom5', \
+          'custom6', \
+          'custom7', \
+          'custom8']"
+
+    gsettings set $CUSTOM_KEYBINDING_SETTING/custom0/ name "Firefox ESR"
+    gsettings set $CUSTOM_KEYBINDING_SETTING/custom0/ command "firefox-esr"
+    gsettings set $CUSTOM_KEYBINDING_SETTING/custom0/ binding "['<Control><Alt>f']"
+
+    gsettings set $CUSTOM_KEYBINDING_SETTING/custom1/ name "Nemo"
+    gsettings set $CUSTOM_KEYBINDING_SETTING/custom1/ command "nemo"
+    gsettings set $CUSTOM_KEYBINDING_SETTING/custom1/ binding "['<Control><Alt>n']"
+
+    gsettings set $CUSTOM_KEYBINDING_SETTING/custom2/ name "Gnome System Monitor"
+    gsettings set $CUSTOM_KEYBINDING_SETTING/custom2/ command "gnome-system-monitor"
+    gsettings set $CUSTOM_KEYBINDING_SETTING/custom2/ binding "['<Control><Shift>Escape']"
+
+    gsettings set $CUSTOM_KEYBINDING_SETTING/custom3/ name "Chromium"
+    gsettings set $CUSTOM_KEYBINDING_SETTING/custom3/ command "chromium"
+    gsettings set $CUSTOM_KEYBINDING_SETTING/custom3/ binding "['<Control><Alt>c']"
+
+    gsettings set $CUSTOM_KEYBINDING_SETTING/custom4/ name "Visual Studio Code"
+    gsettings set $CUSTOM_KEYBINDING_SETTING/custom4/ command "code"
+    gsettings set $CUSTOM_KEYBINDING_SETTING/custom4/ binding "['<Control><Alt>v']"
+
+    gsettings set $CUSTOM_KEYBINDING_SETTING/custom5/ name "Spotify"
+    gsettings set $CUSTOM_KEYBINDING_SETTING/custom5/ command "flatpak run com.spotify.Client"
+    gsettings set $CUSTOM_KEYBINDING_SETTING/custom5/ binding "['<Control><Alt>s']"
+
+    gsettings set $CUSTOM_KEYBINDING_SETTING/custom6/ name "Discord"
+    gsettings set $CUSTOM_KEYBINDING_SETTING/custom6/ command "flatpak run com.discordapp.Discord"
+    gsettings set $CUSTOM_KEYBINDING_SETTING/custom6/ binding "['<Control><Alt>d']"
+
+    gsettings set $CUSTOM_KEYBINDING_SETTING/custom7/ name "LibreOffice Writer"
+    gsettings set $CUSTOM_KEYBINDING_SETTING/custom7/ command "flatpak run org.libreoffice.LibreOffice --writer"
+    gsettings set $CUSTOM_KEYBINDING_SETTING/custom7/ binding "['<Control><Alt>w']"
+
+    gsettings set $CUSTOM_KEYBINDING_SETTING/custom8/ name "Black Screen"
+    gsettings set $CUSTOM_KEYBINDING_SETTING/custom8/ command "xset dpms force off"
+    gsettings set $CUSTOM_KEYBINDING_SETTING/custom8/ binding "['<Control><Alt>b']"
 }
 
 # ============================================================================
@@ -498,6 +560,7 @@ cinnamon_gtk_theme
 wallpaper_slideshow
 workspace_switcher_applet
 cinnamenu_applet
+keyboard_shortcuts
 
 update_upgrade_apt
 exit_function
