@@ -380,7 +380,8 @@ workspace_switcher_applet() {
     gsettings get org.cinnamon enabled-applets > enabled-applets-backup-1.ini
     gsettings set org.cinnamon enabled-applets "$WORKSPACE_SWITCHER_PANEL"
 
-    sudo apt install -y jq # jq: command-line JSON processor
+    log "==> installing jq to edit json"
+    sudo apt install -y jq
 
     WORKSPACE_SWITCHER_SETTINGS_DIRECTORY=~/.config/cinnamon/spices/workspace-switcher@cinnamon.org
 
@@ -414,7 +415,8 @@ cinnamenu_applet() {
     gsettings set org.cinnamon enabled-applets "$(cat enabled-applets-cinnamenu.ini)"
 
     # import preferences
-    sudo apt install -y jq # jq: command-line JSON processor
+    log "==> installing jq to edit json"
+    sudo apt install -y jq
 
     CINNAMENU_SETTINGS_DIRECTORY=~/.config/cinnamon/spices/Cinnamenu@json
 
