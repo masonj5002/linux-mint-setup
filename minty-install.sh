@@ -387,7 +387,8 @@ workspace_switcher_applet() {
     ' $WORKSPACE_SWITCHER_SETTINGS_DIRECTORY/15.json > temp.json
     mv temp.json $WORKSPACE_SWITCHER_SETTINGS_DIRECTORY/15.json
 
-    
+    # Set to 2 workspaces
+    gsettings set org.cinnamon.desktop.wm.preferences num-workspaces "2"    
 }
 
 cinnamenu_applet() {
