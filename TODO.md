@@ -94,7 +94,7 @@
 - [X] Set `gnome-screenshot` save location
 - [X] Set wallpaper -- set to directory
 - [X] Cinnamenu
-  - [ ] import Cinnamenu preferences
+  - [X] import Cinnamenu preferences
     - [X] set custom icon logo, size, label
     - [X] set Cinnamon "Favorite Apps" list
   - [X] install Cinnamenu & move to corner
