@@ -134,9 +134,11 @@ version_check() {
 }
 
 exit_function() {
+    log "restarting Cinnamon..."
     cinnamon --replace 2>&1 >/dev/null & disown
+    sleep 8
+    echo -ne "\n\n"
     log "Goodbye! Please reboot!"
-    sleep 1
 }
 
 fastly_repo() {
