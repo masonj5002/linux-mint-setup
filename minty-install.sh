@@ -26,6 +26,7 @@ SET_WALLPAPER_SLIDESHOW=true
 ADD_WORKSPACE_SWITCHER_APPLET=true
 INSTALL_CINNAMENU_APPLET=true
 ADD_KEYBOARD_SHORTCUTS=true
+ADD_NEMO_TWEAKS=true
 
 # ============================================================================
 # Config
@@ -532,6 +533,18 @@ keyboard_shortcuts() {
     gsettings set $CUSTOM_KEYBINDING_SETTING/custom8/ binding "['<Control><Alt>b']"
 }
 
+nemo_tweaks() {
+    if [ "${ADD_NEMO_TWEAKS}" != true ] ; then
+        return 0
+    fi
+    log "adding Nemo tweaks..."
+
+    # modify context menu
+    gsettings set org.nemo.preferences enable-delete false
+    gsettings set org.nemo.preferences.menu-config selection-menu-make-link true
+
+}
+
 # ============================================================================
 # Main
 # ============================================================================
@@ -564,6 +577,7 @@ wallpaper_slideshow
 workspace_switcher_applet
 cinnamenu_applet
 keyboard_shortcuts
+nemo_tweaks
 
 update_upgrade_apt
 exit_function

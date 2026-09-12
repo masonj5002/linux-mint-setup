@@ -103,11 +103,14 @@
   - [X] basic functionality
   - [X] swap `cinnamenu_applet` and `workspace_switcher_applet` order
   - [X] set number of workspaces to 2
-- [ ] Nemo
-  - [ ] remove 'Delete' from context menu
-  - [ ] add 'Make Alias' to context menu
-- [ ] Create directory ~/Projects and create an alias on ~/Desktop
+- [ ] Directories
+  - [ ] Create directory ~/Projects
+  - [ ] Set accent colors for 'Screenshots', 'Projects'
+  - [ ] Bookmark and add alias to desktop for 'Screenshots', 'Projects'
 - [ ] Add templates to template folder
+- [X] Nemo
+  - [X] remove 'Delete' from context menu
+  - [X] add 'Make Alias' to context menu
 - [ ] enable timeshift and add scheduled snapshots
 - [ ] make `xed` open in a new window *every* time
 - [ ] Cleanup maintenance: including `sudo apt clean && sudo apt autoremove`
