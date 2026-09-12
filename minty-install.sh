@@ -347,7 +347,13 @@ set_screenshot_save_location() {
     fi
     log "changing screenshot save location to ${GNOME_SCREENSHOT_SAVE_LOCATION}"
 
-    mkdir ~/Documents/Screenshots
+    # change to if-not-exists
+    if [ ! -d ~/Documents/Screenshots ]; then
+        mkdir ~/Documents/Screenshots
+    fi
+    
+    gsettings set org.gnome.gnome-screenshot auto-save-directory \
+    "file:///home/$(whoami)/Documents/Screenshots"
 }
 
 cinnamon_gtk_theme() {
