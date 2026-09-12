@@ -3,6 +3,7 @@
 ## Requirements
 
 - [ ] Modulize each component
+- [ ] * I want a clipboard manager
 
 ## Initialization
 
@@ -111,6 +112,7 @@
 - [X] Nemo
   - [X] remove 'Delete' from context menu
   - [X] add 'Make Alias' to context menu
+  - [X] add 'New Folder', 'Open in Terminal' to context menu
 - [ ] enable timeshift and add scheduled snapshots
 - [ ] make `xed` open in a new window *every* time
 - [ ] Cleanup maintenance: including `sudo apt clean && sudo apt autoremove`

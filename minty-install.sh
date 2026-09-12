@@ -26,6 +26,7 @@ SET_WALLPAPER_SLIDESHOW=true
 ADD_WORKSPACE_SWITCHER_APPLET=true
 INSTALL_CINNAMENU_APPLET=true
 ADD_KEYBOARD_SHORTCUTS=true
+# ADD_DIRECTORIES_COLORS_BOOKMARKS=true
 ADD_NEMO_TWEAKS=true
 
 # ============================================================================
@@ -549,6 +550,9 @@ nemo_tweaks() {
     gsettings set org.nemo.preferences enable-delete false
     gsettings set org.nemo.preferences.menu-config selection-menu-make-link true
 
+    # add to shortcuts to toolbar
+    gsettings set org.nemo.preferences show-new-folder-icon-toolbar true
+    gsettings set org.nemo.preferences show-open-in-terminal-toolbar true
 }
 
 # ============================================================================
