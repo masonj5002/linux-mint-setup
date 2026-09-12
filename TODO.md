@@ -30,8 +30,8 @@
 - [ ] Firefox ESR (PPA)
   - [X] purge Firefox
   - [X] enable Firefox Smooth Scrolling
-  - [X] disable backspace to go back & front space to go forward
-  - [ ] add `firefox-esr` to "taskbar"
+  - [ ] disable backspace to go back & front space to go forward
+  - [ ] replace `firefox` with `firefox-esr` in applet
   - [ ] prevent `mint-chat` (matrix) from being removed
 - [X] Chromium
   - [X] Make Chromium default PDF viewer
@@ -103,10 +103,12 @@
   - [X] basic functionality
   - [X] swap `cinnamenu_applet` and `workspace_switcher_applet` order
   - [X] set number of workspaces to 2
-- [ ] remove 'Delete' and add 'Make Alias' to nemo context menu
+- [ ] Nemo
+  - [ ] remove 'Delete' from context menu
+  - [ ] add 'Make Alias' to context menu
 - [ ] Create directory ~/Projects and create an alias on ~/Desktop
-- [ ] enable timeshift and add scheduled snapshots
 - [ ] Add templates to template folder
+- [ ] enable timeshift and add scheduled snapshots
 - [ ] make `xed` open in a new window *every* time
 - [ ] Cleanup maintenance: including `sudo apt clean && sudo apt autoremove`
 - [ ] modify `.desktop` files
