@@ -26,7 +26,7 @@ SET_WALLPAPER_SLIDESHOW=true
 ADD_WORKSPACE_SWITCHER_APPLET=true
 INSTALL_CINNAMENU_APPLET=true
 ADD_KEYBOARD_SHORTCUTS=true
-# ADD_DIRECTORIES_COLORS_BOOKMARKS=true
+ADD_DIRECTORIES_COLORS_BOOKMARKS=true
 ADD_NEMO_TWEAKS=true
 
 # ============================================================================
@@ -342,19 +342,18 @@ virtualbox_with_ext_pack() {
     rm Oracle_VirtualBox_Extension_Pack-7.2.16.vbox-extpack
 }
 
-set_screenshot_save_location() {
+screenshot_save_location() {
     if [ "${CHANGE_GNOME_SCREENSHOT_SAVE_LOCATION}" != true ] ; then
         return 0
     fi
     log "changing screenshot save location to ${GNOME_SCREENSHOT_SAVE_LOCATION}"
 
-    # change to if-not-exists
     if [ ! -d ~/Documents/Screenshots ]; then
         mkdir ~/Documents/Screenshots
     fi
     
     gsettings set org.gnome.gnome-screenshot auto-save-directory \
-    "file:///home/$(whoami)/Documents/Screenshots"
+    "file://$HOME/Documents/Screenshots"
 }
 
 cinnamon_gtk_theme() {
@@ -540,6 +539,32 @@ keyboard_shortcuts() {
     gsettings set $CUSTOM_KEYBINDING_SETTING/custom8/ binding "['<Control><Alt>b']"
 }
 
+directories_colors_bookmarks() {
+    if [ "${ADD_DIRECTORIES_COLORS_BOOKMARKS}" != true ] ; then
+        return 0
+    fi
+    log "adding directories (and aliases), Nemo accent-colors, and Nemo bookmarks..."
+    
+    GREEN_FOLDER=/usr/share/icons/Mint-Y/places/128@2x/folder.png
+    PURPLE_FOLDER=/usr/share/icons/Mint-Y-Purple/places/128@2x/folder.png
+
+    if [ ! -d ~/Projects ]; then
+        mkdir ~/Projects
+    fi
+    echo "file://$HOME/Projects" >> ~/.config/gtk-3.0/bookmarks
+    ln -sf ~/Projects ~/Desktop/Projects
+    gio set "file://$HOME/Projects" metadata::custom-icon "file://$GREEN_FOLDER"
+    gio set "file://$HOME/Desktop/Projects" metadata::custom-icon "file://$GREEN_FOLDER"
+
+    if [ ! -d ~/Documents/Screenshots ]; then
+        mkdir ~/Documents/Screenshots
+    fi
+    echo "file://$HOME/Documents/Screenshots" >> ~/.config/gtk-3.0/bookmarks
+    ln -sf ~/Documents/Screenshots ~/Desktop/Screenshots
+    gio set "file://$HOME/Documents/Screenshots" metadata::custom-icon "file://$PURPLE_FOLDER"
+    gio set "file://$HOME/Desktop/Screenshots" metadata::custom-icon "file://$PURPLE_FOLDER"
+}
+
 nemo_tweaks() {
     if [ "${ADD_NEMO_TWEAKS}" != true ] ; then
         return 0
@@ -581,12 +606,13 @@ libreoffice_flatpak_purge_apt
 chromium_with_mods
 virtualbox_with_ext_pack
 
-set_screenshot_save_location
+screenshot_save_location
 cinnamon_gtk_theme
 wallpaper_slideshow
 workspace_switcher_applet
 cinnamenu_applet
 keyboard_shortcuts
+directories_colors_bookmarks
 nemo_tweaks
 
 update_upgrade_apt
