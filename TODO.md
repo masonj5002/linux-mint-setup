@@ -104,10 +104,10 @@
   - [X] basic functionality
   - [X] swap `cinnamenu_applet` and `workspace_switcher_applet` order
   - [X] set number of workspaces to 2
-- [ ] Directories
-  - [ ] Create directory ~/Projects
-  - [ ] Set accent colors for 'Screenshots', 'Projects'
-  - [ ] Bookmark and add alias to desktop for 'Screenshots', 'Projects'
+- [X] Directories
+  - [X] Create directory ~/Projects
+  - [X] Set accent colors for 'Screenshots', 'Projects'
+  - [X] Bookmark and add alias to desktop for 'Screenshots', 'Projects'
 - [ ] Add templates to template folder
 - [X] Nemo
   - [X] remove 'Delete' from context menu
