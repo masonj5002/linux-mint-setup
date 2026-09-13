@@ -117,6 +117,7 @@
 - [ ] make `xed` open in a new window *every* time
 - [ ] Cleanup maintenance: including `sudo apt clean && sudo apt autoremove`
 - [ ] modify `.desktop` files
+- [ ] create `.hidden` file for home directory
 - [ ] Open new windows in 'center' as opposed to 'automatic'
 
 ### Keyboard Shortcuts
