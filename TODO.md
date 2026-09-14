@@ -108,7 +108,7 @@
   - [X] Create directory ~/Projects
   - [X] Set accent colors for 'Screenshots', 'Projects'
   - [X] Bookmark and add alias to desktop for 'Screenshots', 'Projects'
-- [ ] Add templates to template folder
+- [X] Add templates to template folder
 - [X] Nemo
   - [X] remove 'Delete' from context menu
   - [X] add 'Make Alias' to context menu
