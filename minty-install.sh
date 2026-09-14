@@ -27,6 +27,7 @@ ADD_WORKSPACE_SWITCHER_APPLET=true
 INSTALL_CINNAMENU_APPLET=true
 ADD_KEYBOARD_SHORTCUTS=true
 ADD_DIRECTORIES_COLORS_BOOKMARKS=true
+ADD_TEMPLATES=true
 ADD_NEMO_TWEAKS=true
 
 # ============================================================================
@@ -124,6 +125,7 @@ greeting_function() {
 
 version_check() {
     # TODO: TEST ON SYSTEM WITH WRONG VERSION
+    # TODO: On version mismatch, `return 1`
     . /etc/os-release
     if [ $VERSION_CODENAME != $SUPPORTED_VERSION ] ; then
         echo "Unsupported OS Version.\nThis script supports Linux Mint $SUPPORTED_VERSION. The script will now terminate."
@@ -548,7 +550,7 @@ directories_colors_bookmarks() {
     GREEN_FOLDER=/usr/share/icons/Mint-Y/places/128@2x/folder.png
     PURPLE_FOLDER=/usr/share/icons/Mint-Y-Purple/places/128@2x/folder.png
 
-    if [ ! -d ~/Projects ]; then
+    if [ ! -d ~/Projects ] ; then
         mkdir ~/Projects
     fi
     echo "file://$HOME/Projects" >> ~/.config/gtk-3.0/bookmarks
@@ -563,6 +565,15 @@ directories_colors_bookmarks() {
     ln -sf ~/Documents/Screenshots ~/Desktop/Screenshots
     gio set "file://$HOME/Documents/Screenshots" metadata::custom-icon "file://$PURPLE_FOLDER"
     gio set "file://$HOME/Desktop/Screenshots" metadata::custom-icon "file://$PURPLE_FOLDER"
+}
+
+templates() {
+    if [ "${ADD_TEMPLATES}" != true ] ; then
+        return 0
+    fi
+    log "Adding LibreOffice, plain text templates..."
+    
+    cp -r assets/Templates/. ~/Templates
 }
 
 nemo_tweaks() {
@@ -613,6 +624,7 @@ workspace_switcher_applet
 cinnamenu_applet
 keyboard_shortcuts
 directories_colors_bookmarks
+templates
 nemo_tweaks
 
 update_upgrade_apt
