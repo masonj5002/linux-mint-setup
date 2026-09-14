@@ -371,7 +371,15 @@ cinnamon_gtk_theme() {
 
     gsettings set org.cinnamon.desktop.interface gtk-overlay-scrollbars false
 
-    # TODO: set fonts for desktop to be more visible (set font to bold)
+    gsettings set org.nemo.desktop font "Ubuntu Bold 12"
+
+    # reference gsettings keys for changing Cinnamon fonts:
+    ## gsettings get org.cinnamon.desktop.interface font-name
+    ## gsettings get org.nemo.desktop font
+    ## gsettings get org.gnome.desktop.interface document-font-name
+    ## gsettings get org.gnome.desktop.interface monospace-font-name
+    ## gsettings get org.cinnamon.desktop.wm.preferences titlebar-font
+    ## gsettings get org.cinnamon.desktop.interface text-scaling-factor
 }
 
 wallpaper_slideshow() {

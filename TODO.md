@@ -164,11 +164,12 @@ set enableMiniWindow=false
     - [X] Clock
     - [X] Video Downloader
 - [ ] `cinnamon-gtk-theme`
-  - [ ] set fonts for desktop to be more visible (set font to bold)
+  - [X] set nemo desktop font to 'Ubuntu Bold 12'
   - [X] disable 'use overlay scrollbars'
 - [ ] move variables to top to follow best practice
 - [ ] move configurable options to separate file
 - [ ] switch all flatpak installs to non-interactive, force progress bar
+- [ ] set panel clock to Windows 10-type format
 - [ ] disable `font-manager` install by default
 
 ``` bash
@@ -181,6 +182,16 @@ flatpak override --user --env=GTK_THEME=Adwaita:light org.kde.kolourpaint
 
 ``` bash
 gsettings set org.gnome.gnome-screenshot auto-save-directory "file:///home/mason/Documents/Screenshots"
+```
+
+``` bash
+# changing cinnamon desktop fonts
+gsettings get org.cinnamon.desktop.interface font-name
+gsettings get org.nemo.desktop font
+gsettings get org.gnome.desktop.interface document-font-name
+gsettings get org.gnome.desktop.interface monospace-font-name
+gsettings get org.cinnamon.desktop.wm.preferences titlebar-font
+gsettings get org.cinnamon.desktop.interface text-scaling-factor
 ```
 
 - [ ] *In the future, explore different linux mint system fonts*
