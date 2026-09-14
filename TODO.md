@@ -163,9 +163,13 @@ set enableMiniWindow=false
     - [O] Authenticator
     - [X] Clock
     - [X] Video Downloader
-- [ ] set fonts for desktop to be more visible (set font to bold) (in `cinnamon-gtk-theme`)
+- [ ] `cinnamon-gtk-theme`
+  - [ ] set fonts for desktop to be more visible (set font to bold)
+  - [X] disable 'use overlay scrollbars'
 - [ ] move variables to top to follow best practice
 - [ ] move configurable options to separate file
+- [ ] switch all flatpak installs to non-interactive, force progress bar
+- [ ] disable `font-manager` install by default
 
 ``` bash
 MOZ_USE_XINPUT2=1 | sudo tee /etc/profile.d/use-xinput2.sh
@@ -178,3 +182,6 @@ flatpak override --user --env=GTK_THEME=Adwaita:light org.kde.kolourpaint
 ``` bash
 gsettings set org.gnome.gnome-screenshot auto-save-directory "file:///home/mason/Documents/Screenshots"
 ```
+
+- [ ] *In the future, explore different linux mint system fonts*
+- [ ] on mint 23, switch `neofetch` to `fastfetch`, if not already installed

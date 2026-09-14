@@ -369,6 +369,8 @@ cinnamon_gtk_theme() {
     gsettings set org.cinnamon.desktop.interface icon-theme Mint-Y-Teal
     gsettings set org.cinnamon.theme name Mint-Y-Dark-Teal
 
+    gsettings set org.cinnamon.desktop.interface gtk-overlay-scrollbars false
+
     # TODO: set fonts for desktop to be more visible (set font to bold)
 }
 
