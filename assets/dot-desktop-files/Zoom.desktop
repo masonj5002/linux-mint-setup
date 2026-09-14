@@ -1,0 +1,11 @@
+[Desktop Entry]
+Name=zoom.us
+Comment=Chat with business partners, clients, and friends around the world with Zoom.
+Exec=/usr/bin/zoom %U
+Icon=linphone
+Terminal=false
+Type=Application
+Encoding=UTF-8
+Categories=Network;Application;
+StartupWMClass=zoom
+MimeType=x-scheme-handler/zoommtg;x-scheme-handler/zoomus;x-scheme-handler/tel;x-scheme-handler/callto;x-scheme-handler/zoomphonecall;x-scheme-handler/zoomphonesms;x-scheme-handler/zoomcontactcentercall;application/x-zoom

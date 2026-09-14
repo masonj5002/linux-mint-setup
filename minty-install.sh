@@ -25,6 +25,7 @@ SET_CINNAMON_GTK_THEME=true
 SET_WALLPAPER_SLIDESHOW=true
 ADD_WORKSPACE_SWITCHER_APPLET=true
 INSTALL_CINNAMENU_APPLET=true
+CREATE_DESKTOP_FILES=true
 ADD_KEYBOARD_SHORTCUTS=true
 ADD_DIRECTORIES_COLORS_BOOKMARKS=true
 ADD_TEMPLATES=true
@@ -49,7 +50,7 @@ FAVORITE_APPS_LIST=\
 # ============================================================================
 
 APT_PACKAGES_EASY=(
-    font-manager
+    # font-manager
     neofetch
     htop
     # steam-installer
@@ -362,11 +363,13 @@ cinnamon_gtk_theme() {
     if [ "${SET_CINNAMON_GTK_THEME}" != true ] ; then
         return 0
     fi
-    log "setting GTK, icon, and Cinnamon theme..."
+    log "setting GTK, icon, Cinnamon theme, desktop fonts..."
 
     gsettings set org.cinnamon.desktop.interface gtk-theme Mint-Y-Dark-Teal
     gsettings set org.cinnamon.desktop.interface icon-theme Mint-Y-Teal
     gsettings set org.cinnamon.theme name Mint-Y-Dark-Teal
+
+    # TODO: set fonts for desktop to be more visible (set font to bold)
 }
 
 wallpaper_slideshow() {
@@ -470,6 +473,15 @@ cinnamenu_applet() {
 
     # Set favorites list
     gsettings set org.cinnamon favorite-apps "$FAVORITE_APPS_LIST"
+}
+
+desktop_files() {
+    if [ "${CREATE_DESKTOP_FILES}" != true ] ; then
+        return 0
+    fi
+    log "Creating '.desktop' files..."
+
+    cp -r assets/dot-desktop-files/. ~/.local/share/applications
 }
 
 keyboard_shortcuts() {
@@ -622,6 +634,7 @@ cinnamon_gtk_theme
 wallpaper_slideshow
 workspace_switcher_applet
 cinnamenu_applet
+desktop_files
 keyboard_shortcuts
 directories_colors_bookmarks
 templates

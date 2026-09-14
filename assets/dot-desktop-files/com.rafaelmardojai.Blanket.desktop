@@ -1,0 +1,10 @@
+[Desktop Entry]
+Name=Blanket
+Comment=Listen to different sounds (white noise, grey noise)
+Keywords=Concentrate;Focus;Noise;Productivity;Sleep;
+Exec=/usr/bin/flatpak run --branch=stable --arch=x86_64 --command=blanket com.rafaelmardojai.Blanket
+Icon=com.rafaelmardojai.Blanket
+Terminal=false
+Type=Application
+Categories=AudioVideo;Audio;GTK;
+StartupNotify=true

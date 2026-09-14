@@ -1,0 +1,17 @@
+[Desktop Entry]
+Name=Video Downloader
+Comment=Download web videos
+Exec=/usr/bin/flatpak run --branch=stable --arch=x86_64 --command=video-downloader com.github.unrud.VideoDownloader
+Icon=web-google-youtube
+Terminal=false
+Type=Application
+Categories=Network;GTK;
+StartupNotify=true
+X-GNOME-UsesNotifications=true
+Actions=new-window;
+Keywords=YouTube;Download;
+X-Flatpak=com.github.unrud.VideoDownloader
+
+[Desktop Action new-window]
+Name=New Window
+Exec=/usr/bin/flatpak run --branch=stable --arch=x86_64 --command=video-downloader com.github.unrud.VideoDownloader

@@ -114,7 +114,9 @@
   - [X] add 'Make Alias' to context menu
   - [X] add 'New Folder', 'Open in Terminal' to context menu
 - [ ] enable timeshift and add scheduled snapshots
-- [ ] make `xed` open in a new window *every* time
+- [ ] Xed
+  - [ ] enable line numbers by default
+  - [ ] make `xed` open in a new window *every* time
 - [ ] Cleanup maintenance: including `sudo apt clean && sudo apt autoremove`
 - [ ] modify `.desktop` files
 - [ ] create `.hidden` file for home directory
@@ -150,11 +152,20 @@ set enableMiniWindow=false
 ```
 
 - [X] add `flathub` specifier to `flatpak install scripts`
-- [ ] modify `.desktop` files to modify icons and enable fast searches
-  - [ ] "Software Manager" -- add "(Store)" in description
-  - [ ] add themed icons for some flatpak(s)
-  - [ ] move variables to top to follow best practice
-  - [ ] move configurable options to separate file
+- [ ] modify `.desktop` files
+  - [X] 'Software Manager' -- add "(Store)" in description
+  - [X] 'Blanket'
+  - [X] 'Zoom'
+  - [X] 'Printers'
+  - [X] hide 'Drawing'
+  - [S] themed icons for flatpak(s):
+    - [X] Kolourpaint
+    - [O] Authenticator
+    - [X] Clock
+    - [X] Video Downloader
+- [ ] set fonts for desktop to be more visible (set font to bold) (in `cinnamon-gtk-theme`)
+- [ ] move variables to top to follow best practice
+- [ ] move configurable options to separate file
 
 ``` bash
 MOZ_USE_XINPUT2=1 | sudo tee /etc/profile.d/use-xinput2.sh

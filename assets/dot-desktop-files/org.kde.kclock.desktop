@@ -1,0 +1,35 @@
+[Desktop Entry]
+Name=Clocks
+Comment=Set alarms and timers, use a stopwatch, and manage world clocks
+Exec=/usr/bin/flatpak run --branch=stable --arch=x86_64 --command=/app/bin/kclock org.kde.kclock
+Icon=gnome-break-timer
+Type=Application
+Terminal=false
+Actions=Timers;Stopwatch;Alarms;
+Categories=Qt;KDE;Utility;
+SingleMainWindow=true
+Keywords=kclock;timer;stopwatch;alarm;timezone;time zone;world clock;
+X-KDE-FormFactor=desktop;tablet;handset;
+X-KDE-Wayland-Interfaces=kde_lockscreen_overlay_v1
+X-Flatpak=org.kde.kclock
+Name[en_US]=Clocks
+Exec[en_US]=/usr/bin/flatpak run --branch=stable --arch=x86_64 --command=/app/bin/kclock org.kde.kclock
+Comment[en_US]=Set alarms and timers, use a stopwatch, and manage world clocks
+PrefersNonDefaultGPU=false
+Icon[en_US]=gnome-break-timer
+Type[en_US]=Application
+
+[Desktop Action Timers]
+Name=Timers
+Icon=player-time
+Exec=/usr/bin/flatpak run --branch=stable --arch=x86_64 --command=/app/bin/kclock org.kde.kclock --page Timers
+
+[Desktop Action Stopwatch]
+Name=Stopwatch
+Icon=chronometer
+Exec=/usr/bin/flatpak run --branch=stable --arch=x86_64 --command=/app/bin/kclock org.kde.kclock --page Stopwatch
+
+[Desktop Action Alarms]
+Name=Alarms
+Icon=notifications
+Exec=/usr/bin/flatpak run --branch=stable --arch=x86_64 --command=/app/bin/kclock org.kde.kclock --page Alarms
