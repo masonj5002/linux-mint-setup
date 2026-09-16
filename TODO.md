@@ -170,6 +170,7 @@ set enableMiniWindow=false
 - [ ] move variables to top to follow best practice
 - [ ] move configurable options to separate file
 - [ ] switch all flatpak installs to non-interactive, force progress bar
+- [ ] add profile picture
 - [ ] disable `font-manager` install by default
 
 ``` bash
