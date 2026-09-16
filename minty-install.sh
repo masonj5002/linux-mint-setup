@@ -625,6 +625,13 @@ xed_tweaks() {
     gsettings set org.x.editor.preferences.editor scheme "cobalt"
 }
 
+timeshift() {
+    if [ "${SETUP_TIMESHIFT}" != true ] ; then
+        return 0
+    fi
+    log "adding tweaks to Xed (text editor)..."
+}
+
 # ============================================================================
 # Main
 # ============================================================================
@@ -661,6 +668,7 @@ keyboard_shortcuts
 directories_colors_bookmarks
 templates
 nemo_tweaks
+xed_tweaks
 
 update_upgrade_apt
 exit_function
