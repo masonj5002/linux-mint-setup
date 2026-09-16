@@ -629,7 +629,23 @@ timeshift() {
     if [ "${SETUP_TIMESHIFT}" != true ] ; then
         return 0
     fi
-    log "adding tweaks to Xed (text editor)..."
+    log "setting up Timeshift backups..."
+
+    log "==> installing jq to edit json"
+    sudo apt install -y jq
+
+    # TODO: fix permissions on timeshift.json
+    cp assets/timeshift/timeshift.json /tmp/timeshift_temp.json
+    sudo cp /tmp/timeshift_temp.json /etc/timeshift/timeshift.json
+    sudo rm /tmp/timeshift_temp.json
+    
+    DEVICE_UUID=$(findmnt -no UUID /)
+    sudo jq --arg uuid "$DEVICE_UUID" '
+    ."backup_device_uuid" = $uuid
+    ' /etc/timeshift/timeshift.json > /tmp/temp_timeshift.json
+    sudo mv /tmp/temp_timeshift.json /etc/timeshift/timeshift.json
+    # also set "schedule daily to true"
+    # also exclude the path of all home directories, including root
 }
 
 # ============================================================================
