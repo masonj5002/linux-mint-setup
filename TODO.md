@@ -115,10 +115,10 @@
   - [X] add 'New Folder', 'Open in Terminal' to context menu
 - [ ] enable timeshift and add scheduled snapshots
 - [ ] Xed
-  - [ ] enable line numbers by default
+  - [X] enable line numbers by default
   - [ ] make `xed` open in a new window *every* time
 - [ ] Cleanup maintenance: including `sudo apt clean && sudo apt autoremove`
-- [ ] modify `.desktop` files
+- [X] add user-based `.desktop` files in `~/.local/share/applications`
 - [ ] create `.hidden` file for home directory
 - [ ] Open new windows in 'center' as opposed to 'automatic'
 

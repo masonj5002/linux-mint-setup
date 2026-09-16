@@ -30,6 +30,7 @@ ADD_KEYBOARD_SHORTCUTS=true
 ADD_DIRECTORIES_COLORS_BOOKMARKS=true
 ADD_TEMPLATES=true
 ADD_NEMO_TWEAKS=true
+ADD_XED_TWEAKS=true
 
 # ============================================================================
 # Config
@@ -373,7 +374,7 @@ cinnamon_gtk_theme() {
 
     gsettings set org.nemo.desktop font "Ubuntu Bold 12"
 
-    # reference gsettings keys for changing Cinnamon fonts:
+    # *reference* gsettings keys for changing Cinnamon fonts:
     ## gsettings get org.cinnamon.desktop.interface font-name
     ## gsettings get org.nemo.desktop font
     ## gsettings get org.gnome.desktop.interface document-font-name
@@ -611,6 +612,16 @@ nemo_tweaks() {
     # add to shortcuts to toolbar
     gsettings set org.nemo.preferences show-new-folder-icon-toolbar true
     gsettings set org.nemo.preferences show-open-in-terminal-toolbar true
+}
+
+xed_tweaks() {
+    if [ "${ADD_XED_TWEAKS}" != true ] ; then
+        return 0
+    fi
+    log "adding tweaks to Xed (text editor)..."
+
+    gsettings set org.x.editor.preferences.editor display-line-numbers true
+    gsettings set org.x.editor.preferences.editor scheme "cobalt"
 }
 
 # ============================================================================
