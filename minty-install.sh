@@ -31,6 +31,7 @@ ADD_DIRECTORIES_COLORS_BOOKMARKS=true
 ADD_TEMPLATES=true
 ADD_NEMO_TWEAKS=true
 ADD_XED_TWEAKS=true
+SETUP_TIMESHIFT=true
 
 # ============================================================================
 # Config
@@ -364,7 +365,7 @@ cinnamon_gtk_theme() {
     if [ "${SET_CINNAMON_GTK_THEME}" != true ] ; then
         return 0
     fi
-    log "setting GTK, icon, Cinnamon theme, desktop fonts..."
+    log "setting GTK, icon, Cinnamon theme, desktop fonts, window behavior..."
 
     gsettings set org.cinnamon.desktop.interface gtk-theme Mint-Y-Dark-Teal
     gsettings set org.cinnamon.desktop.interface icon-theme Mint-Y-Teal
@@ -373,6 +374,10 @@ cinnamon_gtk_theme() {
     gsettings set org.cinnamon.desktop.interface gtk-overlay-scrollbars false
 
     gsettings set org.nemo.desktop font "Ubuntu Bold 12"
+
+    # new windows open center
+    gsettings set org.cinnamon.muffin placement-mode 'center'
+
 
     # *reference* gsettings keys for changing Cinnamon fonts:
     ## gsettings get org.cinnamon.desktop.interface font-name
@@ -510,10 +515,6 @@ keyboard_shortcuts() {
 
     # 'Special Key to Move and Resize Windows'
     gsettings set org.cinnamon.desktop.wm.preferences mouse-button-modifier '<Super>'
-    
-    # Open Windows to Center
-    ## WRONG FUNCTION --- FIX
-    gsettings set org.cinnamon.muffin placement-mode 'center'
 
     # Custom Keyboard Shortcuts
     gsettings set org.cinnamon.desktop.keybindings custom-list \

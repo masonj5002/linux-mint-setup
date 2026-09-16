@@ -113,14 +113,15 @@
   - [X] remove 'Delete' from context menu
   - [X] add 'Make Alias' to context menu
   - [X] add 'New Folder', 'Open in Terminal' to context menu
-- [ ] enable timeshift and add scheduled snapshots
-- [ ] Xed
+- [X] Xed
   - [X] enable line numbers by default
-  - [ ] make `xed` open in a new window *every* time
-- [ ] Cleanup maintenance: including `sudo apt clean && sudo apt autoremove`
+  - [X] make `xed` open in a new window *every* time
 - [X] add user-based `.desktop` files in `~/.local/share/applications`
+- [X] Open new windows in 'center' as opposed to 'automatic'
+- [ ] enable timeshift and add scheduled snapshots
+- [ ] set panel clock to Windows 10-type format
+- [ ] Cleanup maintenance: including `sudo apt clean && sudo apt autoremove`
 - [ ] create `.hidden` file for home directory
-- [ ] Open new windows in 'center' as opposed to 'automatic'
 
 ### Keyboard Shortcuts
 
@@ -169,7 +170,6 @@ set enableMiniWindow=false
 - [ ] move variables to top to follow best practice
 - [ ] move configurable options to separate file
 - [ ] switch all flatpak installs to non-interactive, force progress bar
-- [ ] set panel clock to Windows 10-type format
 - [ ] disable `font-manager` install by default
 
 ``` bash
