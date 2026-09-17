@@ -25,6 +25,7 @@ CHANGE_GNOME_SCREENSHOT_SAVE_LOCATION=true
 SET_CINNAMON_GTK_THEME=true
 SET_WALLPAPER_SLIDESHOW=true
 ADD_WORKSPACE_SWITCHER_APPLET=true
+USE_EN_US_W10_DATE_FORMAT=true
 INSTALL_CINNAMENU_APPLET=true
 CREATE_DESKTOP_FILES=true
 ADD_KEYBOARD_SHORTCUTS=true
@@ -41,6 +42,8 @@ SET_ACCOUNT_PICTURE=true
 GNOME_SCREENSHOT_SAVE_LOCATION=~/Documents/Screenshots
 THEME_COLOR="Teal"
 WALLPAPER_DIRECTORY_LOCATION=~/Pictures
+PANEL_CLOCK_FORMAT="%l:%M %p%n%-m/%-d/%Y"  # TODO: use variables in `en_us_w10_date_format``
+PANEL_CLOCK_FORMAT_TOOLTIP="%A, %B %e, %Y"
 FAVORITE_APPS_LIST=\
 "['chromium-browser.desktop', 'mintinstall.desktop', \
 'virtualbox.desktop', 'com.rafaelmardojai.Blanket.desktop:flatpak', \
@@ -456,6 +459,32 @@ workspace_switcher_applet() {
     gsettings set org.cinnamon.desktop.wm.preferences num-workspaces "2"    
 }
 
+en_us_w10_date_format() {
+    if [ "${USE_EN_US_W10_DATE_FORMAT}" != true ] ; then
+        return 0
+    fi
+    log "Setting date format to EN_US, Windows 10 style..."
+
+    # user date format
+    gsettings set org.cinnamon.desktop.interface clock-use-24h false
+
+    # panel date format
+    log "==> installing jq to edit json"
+    sudo apt install -y jq
+
+    CALENDAR_APPLET_DIRECTORY=~/.config/cinnamon/spices/calendar@cinnamon.org
+
+    # TODO: FIX: USE SYSTEM VARIABLES AT TOP
+    jq '
+    ."use-custom-format".value = true |
+    ."custom-format".value = "%l:%M %p%n%-m/%-d/%Y" |
+    ."custom-tooltip-format".value = "%A, %B %e, %Y"
+    ' $CALENDAR_APPLET_DIRECTORY/13.json > temp.json
+    mv temp.json $CALENDAR_APPLET_DIRECTORY/13.json
+
+    # TODO: Login screen
+}
+
 cinnamenu_applet() {
     if [ "${INSTALL_CINNAMENU_APPLET}" != true ] ; then
         return 0
@@ -705,6 +734,7 @@ screenshot_save_location
 cinnamon_gtk_theme
 wallpaper_slideshow
 workspace_switcher_applet
+en_us_w10_date_format
 cinnamenu_applet
 desktop_files
 keyboard_shortcuts

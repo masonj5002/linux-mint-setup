@@ -120,8 +120,9 @@
 - [X] add user-based `.desktop` files in `~/.local/share/applications`
 - [X] Open new windows in 'center' as opposed to 'automatic'
 - [X] enable timeshift and add scheduled snapshots
-- [ ] set panel clock to EN-US Windows 10-type format
-- [ ] set login screen to EN_US time format
+- [ ] date format
+  - [X] set panel clock to EN-US Windows 10-type date format
+  - [ ] set login screen to EN_US time format
 - [ ] Cleanup maintenance: including `sudo apt clean && sudo apt autoremove`
 - [ ] create `.hidden` file for home directory
 
