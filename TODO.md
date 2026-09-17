@@ -4,6 +4,7 @@
 
 - [ ] Modulize each component
 - [ ] * I want a clipboard manager
+- [ ] * I want a way to get text messages (and/or imessage(s)) on my laptop
 
 ## Initialization
 
@@ -164,7 +165,7 @@ set enableMiniWindow=false
     - [O] Authenticator
     - [X] Clock
     - [X] Video Downloader
-- [ ] `cinnamon-gtk-theme`
+- [X] `cinnamon-gtk-theme`
   - [X] set nemo desktop font to 'Ubuntu Bold 12'
   - [X] disable 'use overlay scrollbars'
 - [ ] move variables to top to follow best practice
@@ -196,4 +197,5 @@ gsettings get org.cinnamon.desktop.interface text-scaling-factor
 ```
 
 - [ ] *In the future, explore different linux mint system fonts*
+- [ ] fix the version check so that it returns 1 instead of exiting...
 - [ ] on mint 23, switch `neofetch` to `fastfetch`, if not already installed
