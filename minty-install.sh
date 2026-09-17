@@ -162,6 +162,37 @@ fastly_repo() {
     update_only_apt
 }
 
+timeshift_snapshot() {
+    if [ "${SETUP_TIMESHIFT_SNAPSHOTS}" != true ] ; then
+        return 0
+    fi
+    log "Creating a timeshift snapshot..."
+
+    sudo timeshift --create # also initialize `timeshift.json`
+    sudo timeshift --check
+}
+
+timeshift_initialization() {
+    if [ "${SETUP_TIMESHIFT_SNAPSHOTS}" != true ] ; then
+        return 0
+    fi
+    log "setting up Timeshift backups..."
+
+    log "==> installing jq to edit json"
+    sudo apt install -y jq
+
+    timeshift_snapshot
+
+    # keep 'daily' snapshots
+    sudo jq '
+    ."schedule_daily" = "true"
+    ' /etc/timeshift/timeshift.json > /tmp/temp_timeshift.json
+    sudo mv /tmp/temp_timeshift.json /etc/timeshift/timeshift.json
+
+    # reads `timeshift.json` initializing changes
+    sudo timeshift --check
+}
+
 update_only_apt() {
     log "Updating apt package list..."
     sudo apt update
@@ -625,37 +656,6 @@ xed_tweaks() {
 
     gsettings set org.x.editor.preferences.editor display-line-numbers true
     gsettings set org.x.editor.preferences.editor scheme "cobalt"
-}
-
-timeshift_snapshot() {
-    if [ "${SETUP_TIMESHIFT_SNAPSHOTS}" != true ] ; then
-        return 0
-    fi
-    log "Creating a timeshift snapshot..."
-
-    sudo timeshift --create # also initialize `timeshift.json`
-    sudo timeshift --check
-}
-
-timeshift_initialization() {
-    if [ "${SETUP_TIMESHIFT_SNAPSHOTS}" != true ] ; then
-        return 0
-    fi
-    log "setting up Timeshift backups..."
-
-    log "==> installing jq to edit json"
-    sudo apt install -y jq
-
-    timeshift_snapshot
-
-    # keep 'daily' snapshots
-    sudo jq '
-    ."schedule_daily" = "true"
-    ' /etc/timeshift/timeshift.json > /tmp/temp_timeshift.json
-    sudo mv /tmp/temp_timeshift.json /etc/timeshift/timeshift.json
-
-    # reads `timeshift.json` initializing changes
-    sudo timeshift --check
 }
 
 # ============================================================================
