@@ -32,7 +32,7 @@ ADD_DIRECTORIES_COLORS_BOOKMARKS=true
 ADD_TEMPLATES=true
 ADD_NEMO_TWEAKS=true
 ADD_XED_TWEAKS=true
-
+SET_ACCOUNT_PICTURE=true
 
 # ============================================================================
 # Config
@@ -189,7 +189,7 @@ timeshift_initialization() {
     ' /etc/timeshift/timeshift.json > /tmp/temp_timeshift.json
     sudo mv /tmp/temp_timeshift.json /etc/timeshift/timeshift.json
 
-    # reads `timeshift.json` initializing changes
+    # reads `timeshift.json`, initializing changes
     sudo timeshift --check
 }
 
@@ -658,6 +658,22 @@ xed_tweaks() {
     gsettings set org.x.editor.preferences.editor scheme "cobalt"
 }
 
+account_picture() {
+    if [ "${SET_ACCOUNT_PICTURE}" != true ] ; then
+        return 0
+    fi
+    log "Setting user account picture..."
+
+    cp /usr/share/cinnamon/faces/3_sky.jpg ~/.face
+
+    OLD_PATH="/home/$(whoami)/.face"
+    NEW_PATH="/usr/share/cinnamon/faces/3_sky.jpg"
+
+    for file in /var/lib/AccountsService/users/$(whoami) ; do
+        sudo sed -i "s@$OLD_PATH@$NEW_PATH@g" "$file"
+    done
+}
+
 # ============================================================================
 # Main
 # ============================================================================
@@ -696,6 +712,7 @@ directories_colors_bookmarks
 templates
 nemo_tweaks
 xed_tweaks
+account_picture
 
 update_upgrade_apt
 timeshift_snapshot

@@ -172,8 +172,8 @@ set enableMiniWindow=false
 - [ ] move variables to top to follow best practice
 - [ ] move configurable options to separate file
 - [ ] switch all flatpak installs to non-interactive, force progress bar
-- [ ] add profile picture
-- [ ] disable `font-manager` install by default
+- [X] add user account picture
+- [X] disable `font-manager` install by default
 
 ``` bash
 MOZ_USE_XINPUT2=1 | sudo tee /etc/profile.d/use-xinput2.sh
