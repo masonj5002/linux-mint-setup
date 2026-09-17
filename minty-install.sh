@@ -4,6 +4,7 @@
 # ============================================================================
 
 SWITCH_TO_FASTLY_REPO=true
+SETUP_TIMESHIFT_SNAPSHOTS=true
 
 INSTALL_APT_LIST_EASY=true
 INSTALL_FLATPAK_LIST_EASY=true
@@ -32,7 +33,6 @@ ADD_TEMPLATES=true
 ADD_NEMO_TWEAKS=true
 ADD_XED_TWEAKS=true
 
-SETUP_TIMESHIFT_SNAPSHOTS=true
 
 # ============================================================================
 # Config
