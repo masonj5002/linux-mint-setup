@@ -627,7 +627,17 @@ xed_tweaks() {
     gsettings set org.x.editor.preferences.editor scheme "cobalt"
 }
 
-timeshift_snapshots() {
+timeshift_snapshot() {
+    if [ "${SETUP_TIMESHIFT_SNAPSHOTS}" != true ] ; then
+        return 0
+    fi
+    log "Creating a timeshift snapshot..."
+
+    sudo timeshift --create # also initialize `timeshift.json`
+    sudo timeshift --check
+}
+
+timeshift_initialization() {
     if [ "${SETUP_TIMESHIFT_SNAPSHOTS}" != true ] ; then
         return 0
     fi
@@ -636,20 +646,16 @@ timeshift_snapshots() {
     log "==> installing jq to edit json"
     sudo apt install -y jq
 
-    # TODO: fix permissions on timeshift.json
-    # # cp assets/timeshift/timeshift.json /tmp/timeshift_temp.json
-    # # sudo cp /tmp/timeshift_temp.json /etc/timeshift/timeshift.json
-    # # sudo rm /tmp/timeshift_temp.json
+    timeshift_snapshot
 
-    sudo timeshift --list # create timeshift.json file
-
-    sudo jq --arg uuid "$DEVICE_UUID" '
-    ."schedule_daily" = true
+    # keep 'daily' snapshots
+    sudo jq '
+    ."schedule_daily" = "true"
     ' /etc/timeshift/timeshift.json > /tmp/temp_timeshift.json
     sudo mv /tmp/temp_timeshift.json /etc/timeshift/timeshift.json
 
-    timeshift --check # create first snapshot AND initialize timeshift.json file,
-    # while keeping the daily snapshots option unchanged
+    # reads `timeshift.json` initializing changes
+    sudo timeshift --check
 }
 
 # ============================================================================
@@ -662,6 +668,7 @@ version_check
 sudo -v
 
 fastly_repo
+timeshift_initialization
 update_upgrade_apt
 
 purge_apt_easy
@@ -690,7 +697,6 @@ templates
 nemo_tweaks
 xed_tweaks
 
-timeshift_snapshots
-
 update_upgrade_apt
+timeshift_snapshot
 exit_function

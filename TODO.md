@@ -119,8 +119,9 @@
   - [X] make `xed` open in a new window *every* time
 - [X] add user-based `.desktop` files in `~/.local/share/applications`
 - [X] Open new windows in 'center' as opposed to 'automatic'
-- [ ] enable timeshift and add scheduled snapshots
-- [ ] set panel clock to Windows 10-type format
+- [X] enable timeshift and add scheduled snapshots
+- [ ] set panel clock to EN-US Windows 10-type format
+- [ ] set login screen to EN_US time format
 - [ ] Cleanup maintenance: including `sudo apt clean && sudo apt autoremove`
 - [ ] create `.hidden` file for home directory
 
@@ -154,7 +155,7 @@ set enableMiniWindow=false
 ```
 
 - [X] add `flathub` specifier to `flatpak install scripts`
-- [ ] modify `.desktop` files
+- [X] modify `.desktop` files
   - [X] 'Software Manager' -- add "(Store)" in description
   - [X] 'Blanket'
   - [X] 'Zoom'
