@@ -199,4 +199,4 @@ gsettings get org.cinnamon.desktop.interface text-scaling-factor
 
 - [ ] *In the future, explore different linux mint system fonts*
 - [ ] fix the version check so that it returns 1 instead of exiting...
-- [ ] on mint 23, switch `neofetch` to `fastfetch`, if not already installed
+- *on mint 23, switch `neofetch` to `fastfetch`, if not already installed*
