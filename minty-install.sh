@@ -31,7 +31,8 @@ ADD_DIRECTORIES_COLORS_BOOKMARKS=true
 ADD_TEMPLATES=true
 ADD_NEMO_TWEAKS=true
 ADD_XED_TWEAKS=true
-SETUP_TIMESHIFT=true
+
+SETUP_TIMESHIFT_SNAPSHOTS=true
 
 # ============================================================================
 # Config
@@ -625,8 +626,8 @@ xed_tweaks() {
     gsettings set org.x.editor.preferences.editor scheme "cobalt"
 }
 
-timeshift() {
-    if [ "${SETUP_TIMESHIFT}" != true ] ; then
+timeshift_snapshots() {
+    if [ "${SETUP_TIMESHIFT_SNAPSHOTS}" != true ] ; then
         return 0
     fi
     log "setting up Timeshift backups..."
@@ -635,17 +636,19 @@ timeshift() {
     sudo apt install -y jq
 
     # TODO: fix permissions on timeshift.json
-    cp assets/timeshift/timeshift.json /tmp/timeshift_temp.json
-    sudo cp /tmp/timeshift_temp.json /etc/timeshift/timeshift.json
-    sudo rm /tmp/timeshift_temp.json
-    
-    DEVICE_UUID=$(findmnt -no UUID /)
+    # # cp assets/timeshift/timeshift.json /tmp/timeshift_temp.json
+    # # sudo cp /tmp/timeshift_temp.json /etc/timeshift/timeshift.json
+    # # sudo rm /tmp/timeshift_temp.json
+
+    sudo timeshift --list # create timeshift.json file
+
     sudo jq --arg uuid "$DEVICE_UUID" '
-    ."backup_device_uuid" = $uuid
+    ."schedule_daily" = true
     ' /etc/timeshift/timeshift.json > /tmp/temp_timeshift.json
     sudo mv /tmp/temp_timeshift.json /etc/timeshift/timeshift.json
-    # also set "schedule daily to true"
-    # also exclude the path of all home directories, including root
+
+    timeshift --check # create first snapshot AND initialize timeshift.json file,
+    # while keeping the daily snapshots option unchanged
 }
 
 # ============================================================================
@@ -685,6 +688,8 @@ directories_colors_bookmarks
 templates
 nemo_tweaks
 xed_tweaks
+
+timeshift_snapshots
 
 update_upgrade_apt
 exit_function
