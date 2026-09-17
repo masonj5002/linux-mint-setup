@@ -56,6 +56,7 @@ APT_PACKAGES_EASY=(
     # font-manager
     neofetch
     htop
+    tuptime # tracks system uptime
     # steam-installer
 
     ## dev tools
