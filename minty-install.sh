@@ -10,6 +10,7 @@ INSTALL_APT_LIST_EASY=true
 INSTALL_FLATPAK_LIST_EASY=true
 PURGE_APT_LIST_EASY=true
 
+INSTALL_EXTRA_FONTS=true
 INSTALL_TTF_FONTS=true
 INSTALL_VSCODE=true
 INSTALL_ZOOM_WITH_MODS=true
@@ -81,12 +82,14 @@ FLATPAK_PACKAGES_EASY=(
     com.github.unrud.VideoDownloader
     com.spotify.Client
     com.discordapp.Discord
-    # com.usebottles.bottles # also install Wizard101
-
 )
 
 APT_PURGE_EASY=(
     cups-browsed
+)
+
+EXTRA_FONTS_LIST=(
+    fonts-comic-neue
 )
 
 DEB_FILES=(
@@ -234,6 +237,13 @@ install_flatpak_easy() {
     flatpak install flathub --noninteractive -y "${FLATPAK_PACKAGES_EASY[@]}"
 }
 
+extra_fonts() {
+    if [ "${INSTALL_EXTRA_FONTS}" != true ] ; then
+        return 0
+    fi
+    log "installing extra fonts..."
+    sudo apt install -y "${EXTRA_FONTS_LIST[@]}"
+}
 
 ttf_fonts() {
     if [ "${INSTALL_TTF_FONTS}" != true ] ; then
@@ -737,6 +747,7 @@ purge_apt_easy
 install_apt_easy
 install_flatpak_easy
 
+extra_fonts
 ttf_fonts
 vscode
 zoom_with_mods
