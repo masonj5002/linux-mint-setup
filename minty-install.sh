@@ -21,6 +21,7 @@ INSTALL_CHROMIUM_WITH_MODS=true
 INSTALL_VIRTUALBOX_WITH_EXT_PACK=true
 # INSTALL_BOTTLES_DOWNLOAD_WIZARD=true
 
+CONFIGURE_LOGIN_WINDOW=true
 CHANGE_GNOME_SCREENSHOT_SAVE_LOCATION=true
 SET_CINNAMON_GTK_THEME=true
 SET_WALLPAPER_SLIDESHOW=true
@@ -383,6 +384,22 @@ virtualbox_with_ext_pack() {
     rm Oracle_VirtualBox_Extension_Pack-7.2.16.vbox-extpack
 }
 
+login_window() {
+    if [ "${CONFIGURE_LOGIN_WINDOW}" != true ] ; then
+        return 0
+    fi
+    log "Configuring login window..."
+
+    sudo apt install -y numlockx
+
+    echo "[Greeter]
+          clock-format=%l:%M %p
+          background=/usr/share/backgrounds/linuxmint-wallpapers/rapciu_hope.jpg
+          activate-numlock=true" |
+    sed 's/^[[:space:]]*//' |
+    sudo tee /etc/lightdm/slick-greeter.conf > /dev/null
+}
+
 screenshot_save_location() {
     if [ "${CHANGE_GNOME_SCREENSHOT_SAVE_LOCATION}" != true ] ; then
         return 0
@@ -730,6 +747,7 @@ libreoffice_flatpak_purge_apt
 chromium_with_mods
 virtualbox_with_ext_pack
 
+login_window
 screenshot_save_location
 cinnamon_gtk_theme
 wallpaper_slideshow
