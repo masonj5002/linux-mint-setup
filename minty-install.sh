@@ -336,6 +336,11 @@ firefox_esr_purge_stable_with_mods() {
     update_only_apt
     sudo apt install -y firefox-esr
 
+    # update grouped-window-list applet
+    for file in ~/.config/cinnamon/spices/grouped-window-list@cinnamon.org/2.json ; do
+        sed -i 's/firefox.desktop/firefox-esr.desktop/g' "$file"
+    done
+
     # Allow multitouch gestures and precision scrolling
     MOZ_USE_XINPUT2=1 | sudo tee /etc/profile.d/use-xinput2.sh
 }
