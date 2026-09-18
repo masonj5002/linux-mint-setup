@@ -87,7 +87,8 @@
   - [X] force light theme
 - [X] LibreOffice
   - [X] `purge` apt version and install flatpak version of `libreoffice*`
-  - [ ] add correct `.desktop` icons, theme them and hide others
+  - [X] add correct `.desktop` icons, theme them and hide others
+    - [X] hide LibreOffice Math from 'Science' category
 
 ## Additional Configuration & Tweaks
 
