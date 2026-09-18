@@ -25,7 +25,7 @@ CHANGE_GNOME_SCREENSHOT_SAVE_LOCATION=true
 SET_CINNAMON_GTK_THEME=true
 SET_WALLPAPER_SLIDESHOW=true
 ADD_WORKSPACE_SWITCHER_APPLET=true
-USE_EN_US_W10_DATE_FORMAT=true
+SET_DATE_FORMAT=true
 INSTALL_CINNAMENU_APPLET=true
 CREATE_DESKTOP_FILES=true
 ADD_KEYBOARD_SHORTCUTS=true
@@ -459,8 +459,8 @@ workspace_switcher_applet() {
     gsettings set org.cinnamon.desktop.wm.preferences num-workspaces "2"    
 }
 
-en_us_w10_date_format() {
-    if [ "${USE_EN_US_W10_DATE_FORMAT}" != true ] ; then
+date_format() {
+    if [ "${SET_DATE_FORMAT}" != true ] ; then
         return 0
     fi
     log "Setting date format to EN_US, Windows 10 style..."
@@ -734,7 +734,7 @@ screenshot_save_location
 cinnamon_gtk_theme
 wallpaper_slideshow
 workspace_switcher_applet
-en_us_w10_date_format
+date_format
 cinnamenu_applet
 desktop_files
 keyboard_shortcuts

@@ -123,6 +123,7 @@
 - [ ] date format
   - [X] set panel clock to EN-US Windows 10-type date format
   - [ ] set login screen to EN_US time format
+- [ ] Login window: enable numlockx
 - [ ] Cleanup maintenance: including `sudo apt clean && sudo apt autoremove`
 - [ ] create `.hidden` file for home directory
 
