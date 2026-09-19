@@ -320,7 +320,7 @@ firefox_esr_purge_stable_with_mods() {
     fi
     log "Purging Firefox Stable and installing Firefox ESR with mods..."
     
-    sudo apt purge -y firefox*
+    sudo apt purge -y firefox* mintchat # (`mintchat` depends on `firefox`)
     sudo add-apt-repository -y ppa:mozillateam/ppa
     
     echo "Package: firefox*
@@ -343,6 +343,14 @@ firefox_esr_purge_stable_with_mods() {
 
     # Allow multitouch gestures and precision scrolling
     MOZ_USE_XINPUT2=1 | sudo tee /etc/profile.d/use-xinput2.sh
+
+    # remove Matrix .desktop file if removed as dependency
+    if ! dpkg -s mintchat &>/dev/null ; then  
+        PGK_DESKTOP_PATH=~/.local/share/applications/webapp-OnlineChat4519.desktop
+        if [ -e $PGK_DESKTOP_PATH ] ; then
+            rm $PGK_DESKTOP_PATH
+        fi
+    fi
 }
 
 libreoffice_flatpak_purge_apt() {
@@ -513,8 +521,6 @@ date_format() {
     ."custom-tooltip-format".value = "%A, %B %e, %Y"
     ' $CALENDAR_APPLET_DIRECTORY/13.json > temp.json
     mv temp.json $CALENDAR_APPLET_DIRECTORY/13.json
-
-    # TODO: Login screen
 }
 
 cinnamenu_applet() {

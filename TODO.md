@@ -33,8 +33,10 @@
   - [X] purge Firefox
   - [X] enable Firefox Smooth Scrolling
   - [ ] disable backspace to go back & front space to go forward
+  - [ ] configure Firefox group policy
+  - [ ] configure Firefox advanced settings sync
   - [ ] replace `firefox` with `firefox-esr` in applet
-  - [ ] prevent `mint-chat` (matrix) from being removed
+  - [X] remove `mint-chat` (matrix) `.desktop` file
 - [X] Chromium
   - [X] Make Chromium default PDF viewer
   - [X] set Chromium settings & install extensions via policy
