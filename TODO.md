@@ -35,7 +35,7 @@
   - [ ] disable backspace to go back & front space to go forward
   - [ ] configure Firefox group policy
   - [ ] configure Firefox advanced settings sync
-  - [ ] replace `firefox` with `firefox-esr` in applet
+  - [X] replace `firefox` with `firefox-esr` in applet
   - [X] remove `mint-chat` (matrix) `.desktop` file
 - [X] Chromium
   - [X] Make Chromium default PDF viewer
