@@ -1,12 +1,12 @@
 {
     "policies": {
-        "BlockAboutConfig": true,
+        "DontCheckDefaultBrowser": true,
         "SkipTermsOfUse": true,
         "DisableTelemetry": true,
         "GenerativeAI": {
             "Enabled": false
         },
-        "HttpsOnlyMode": "allowed",
+        "HttpsOnlyMode": "enabled",
         "AutofillAddressEnabled": false,
         "AutofillCreditCardEnabled": false,
         "PasswordManagerEnabled": false,
@@ -14,16 +14,39 @@
             "WebSuggestions": false,
             "SponsoredSuggestions": false
         },
+        "EnableTrackingProtection": {
+            "Value": true,
+            "Category": "strict"
+        },
+        "Homepage": {
+            "StartPage": "none"
+        },
+        "NewTabPage": false,
+        "FirefoxHome": {
+            "Search": false,
+            "Weather": false,
+            "TopSites": false,
+            "SponsoredTopSites": false,
+            "Highlights": false,
+            "Pocket": false,
+            "Stories": false,
+            "SponsoredPocket": false,
+            "SponsoredStories": false,
+            "Snippets": false,
+            "Widgets": {
+                "Enabled": false
+            }
+        },
         "SearchEngines": {
             "Default": "DuckDuckGo NOAI",
             "Add": [
                 {
                     "Name": "DuckDuckGo NOAI",
-                    "URLTemplate": "https://noai.duckduckgo.com/?q=%s",
+                    "URLTemplate": "https://noai.duckduckgo.com/?q={searchTerms}",
                     "Method": "GET",
                     "Alias": "@noai",
                     "Description": "DuckDuckGo, without the AI",
-                    "SuggestURLTemplate": "https://noai.duckduckgo.com/ac/?q=%s&type=list"
+                    "SuggestURLTemplate": "https://noai.duckduckgo.com/ac/?q={searchTerms}&type=list"
                 }
             ],
             "Remove": [
@@ -32,10 +55,6 @@
                 "Perplexity"
             ],
             "PreventInstalls": false
-        },
-        "EnableTrackingProtection": {
-            "Value": true,
-            "Category": "strict"
         }
     }
 }
