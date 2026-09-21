@@ -1,0 +1,41 @@
+{
+    "policies": {
+        "BlockAboutConfig": true,
+        "SkipTermsOfUse": true,
+        "DisableTelemetry": true,
+        "GenerativeAI": {
+            "Enabled": false
+        },
+        "HttpsOnlyMode": "allowed",
+        "AutofillAddressEnabled": false,
+        "AutofillCreditCardEnabled": false,
+        "PasswordManagerEnabled": false,
+        "FirefoxSuggest": {
+            "WebSuggestions": false,
+            "SponsoredSuggestions": false
+        },
+        "SearchEngines": {
+            "Default": "DuckDuckGo NOAI",
+            "Add": [
+                {
+                    "Name": "DuckDuckGo NOAI",
+                    "URLTemplate": "https://noai.duckduckgo.com/?q=%s",
+                    "Method": "GET",
+                    "Alias": "@noai",
+                    "Description": "DuckDuckGo, without the AI",
+                    "SuggestURLTemplate": "https://noai.duckduckgo.com/ac/?q=%s&type=list"
+                }
+            ],
+            "Remove": [
+                "Amazon.com",
+                "eBay",
+                "Perplexity"
+            ],
+            "PreventInstalls": false
+        },
+        "EnableTrackingProtection": {
+            "Value": true,
+            "Category": "strict"
+        }
+    }
+}
