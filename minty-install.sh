@@ -136,14 +136,12 @@ greeting_function() {
 }
 
 version_check() {
-    # TODO: TEST ON SYSTEM WITH WRONG VERSION
-    # TODO: On version mismatch, `return 1`
     . /etc/os-release
     if [ $VERSION_CODENAME != $SUPPORTED_VERSION ] ; then
-        echo "Unsupported OS Version.\nThis script supports Linux Mint $SUPPORTED_VERSION. The script will now terminate."
-        echo "The script will exit in 10 seconds..."
-        sleep 10
-        exit
+        echo "Unsupported OS Version. This script supports Linux Mint $SUPPORTED_VERSION. The script will now terminate."
+        echo "The script will now terminate..."
+        sleep 3
+        return 1
     fi
 
     echo "You are running $NAME $VERSION. This version is supported!"
