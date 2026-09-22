@@ -12,7 +12,8 @@
         "PasswordManagerEnabled": false,
         "FirefoxSuggest": {
             "WebSuggestions": false,
-            "SponsoredSuggestions": false
+            "SponsoredSuggestions": false,
+            "OnlineEnabled": false
         },
         "EnableTrackingProtection": {
             "Value": true,

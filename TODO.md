@@ -32,9 +32,9 @@
 - [ ] Firefox ESR (PPA)
   - [X] purge Firefox
   - [X] enable Firefox Smooth Scrolling
-  - [ ] disable backspace to go back & front space to go forward
-  - [ ] configure Firefox group policy
-  - [ ] configure Firefox advanced settings sync
+  - [X] disable backspace to go back & front space to go forward (apparently already enabled?)
+  - [X] configure Firefox `policies.json` file
+  - [X] configure Firefox advanced configs in user.js
   - [ ] fix printer margins in print-to-pdf
   - [X] replace `firefox` with `firefox-esr` in applet
   - [X] remove `mint-chat` (matrix) `.desktop` file
