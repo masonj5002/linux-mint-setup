@@ -155,7 +155,7 @@ install_flatpak_easy() {
     if [ "$INSTALL_FLATPAK_LIST_EASY" != true ] ; then
         return 0
     fi
-    log "installing easy flatpak packages"
+    log "installing easy flatpak packages..."
     flatpak remote-add --if-not-exists flathub https://dl.flathub.org/repo/flathub.flatpakrepo
     flatpak install flathub --noninteractive -y "${FLATPAK_PACKAGES_EASY[@]}"
 }
