@@ -47,7 +47,7 @@ greeting_function() {
     if [ ! -f "$CONFIG_FILE" ] ; then
         log "==> ==> ERROR: config file not found."
         log "==> ==> ==> exiting..."
-        sleep 3
+        sleep 2
         return 1
     fi
     source "$CONFIG_FILE"
@@ -58,7 +58,7 @@ version_check() {
     if [ $VERSION_CODENAME != $SUPPORTED_VERSION ] ; then
         log "Unsupported OS Version. This script supports Linux Mint $SUPPORTED_VERSION. The script will now terminate."
         log "==> The script will now terminate..."
-        sleep 3
+        sleep 2
         return 1
     fi
 
@@ -84,7 +84,7 @@ fastly_repo() {
     if [ "$SWITCH_TO_FASTLY_REPO" != true ] ; then
         return 0
     fi
-    log "Switching to Fastly CDN..."
+    log "switching to Fastly CDN..."
     for file in /etc/apt/sources.list.d/official-package-repositories.list ; do
         sudo sed -i 's/packages.linuxmint.com/fastly.linuxmint.io/g' "$file"
     done
@@ -96,7 +96,7 @@ timeshift_snapshot() {
     if [ "${SETUP_TIMESHIFT_SNAPSHOTS}" != true ] ; then
         return 0
     fi
-    log "Creating a timeshift snapshot..."
+    log "creating a timeshift snapshot..."
 
     sudo timeshift --create # also initialize `timeshift.json`
     sudo timeshift --check
@@ -124,13 +124,13 @@ timeshift_initialization() {
 }
 
 update_only_apt() {
-    log "Updating apt package list..."
+    log "updating apt package list..."
     sudo apt update
 }
 
 update_upgrade_apt() {
     update_only_apt
-    log "Upgrading apt packages..."
+    log "upgrading apt packages..."
     sudo apt upgrade -y
 }
 
@@ -147,7 +147,7 @@ install_apt_easy() {
     if [ "$INSTALL_APT_LIST_EASY" != true ] ; then
         return 0
     fi
-    log "Installing easy apt packages..."
+    log "installing easy apt packages..."
     sudo apt install -y "${APT_PACKAGES_EASY[@]}"
 }
 
@@ -203,7 +203,7 @@ zoom_with_mods() {
     if [ "${INSTALL_ZOOM_WITH_MODS}" != true ] ; then
         return 0
     fi
-    log "Installing Zoom with mods..."
+    log "installing Zoom with mods..."
 
     wget https://zoom.us/client/latest/zoom_amd64.deb &&
     sudo apt install -y ./zoom_amd64.deb &&
@@ -221,7 +221,7 @@ ttr() {
     if [ "${INSTALL_TTR}" != true ] ; then
         return 0
     fi
-    log "Installing TTR..."
+    log "installing TTR..."
 
     TTR_URL=https://cdn.toontownrewritten.com/launcher/linux/launcher.flatpakref
     sudo flatpak install --noninteractive --system -y ${TTR_URL}
@@ -231,7 +231,7 @@ kolourpaint_with_mods() {
     if [ "${INSTALL_KOLOURPAINT_WITH_MODS}" != true ] ; then
         return 0
     fi
-    log "Installing KolourPaint..."
+    log "installing KolourPaint..."
 
     flatpak install flathub  --noninteractive -y org.kde.kolourpaint
     sudo flatpak override --system --env=GTK_THEME=Adwaita:light org.kde.kolourpaint
@@ -241,7 +241,7 @@ firefox_esr_purge_stable_with_mods() {
     if [ "${INSTALL_FIREFOX_ESR_PURGE_STABLE_WITH_MODS}" != true ] ; then
         return 0
     fi
-    log "Purging Firefox Stable and installing Firefox ESR with mods..."
+    log "purging Firefox Stable and installing Firefox ESR with mods..."
     
     sudo apt purge -y firefox* mintchat # (`mintchat` depends on `firefox`)
     sudo add-apt-repository -y ppa:mozillateam/ppa
@@ -291,7 +291,7 @@ libreoffice_flatpak_purge_apt() {
     if [ "${INSTALL_LIBREOFFICE_FLATPAK_PURGE_APT}" != true ] ; then
         return 0
     fi
-    log "Purging LibreOffice system package and installing Flatpak..."
+    log "purging LibreOffice system package and installing Flatpak..."
 
     sudo apt purge -y libreoffice*
     flatpak install flathub --noninteractive -y org.libreoffice.LibreOffice \
@@ -302,7 +302,7 @@ chromium_with_mods() {
     if [ "${INSTALL_CHROMIUM_WITH_MODS}" != true ] ; then
         return 0
     fi
-    log "Installing Chromium with mods..."
+    log "installing Chromium with mods..."
 
     sudo apt install chromium
     xdg-mime default chromium-browser.desktop application/pdf
@@ -317,7 +317,7 @@ virtualbox_with_ext_pack() {
     if [ "${INSTALL_VIRTUALBOX_WITH_EXT_PACK}" != true ] ; then
         return 0
     fi
-    log "Installing Virtualbox..."
+    log "installing Virtualbox..."
 
     wget -O- https://www.virtualbox.org/download/oracle_vbox_2016.asc |
     sudo gpg --yes --output /usr/share/keyrings/oracle-virtualbox-2016.gpg --dearmor
@@ -345,7 +345,7 @@ login_window() {
     if [ "${CONFIGURE_LOGIN_WINDOW}" != true ] ; then
         return 0
     fi
-    log "Configuring login window..."
+    log "configuring login window..."
 
     sudo apt install -y numlockx
 
@@ -361,7 +361,7 @@ screenshot_save_location() {
     if [ "${CHANGE_GNOME_SCREENSHOT_SAVE_LOCATION}" != true ] ; then
         return 0
     fi
-    log "changing screenshot save location to ${GNOME_SCREENSHOT_SAVE_LOCATION}"
+    log "changing screenshot save location to ${GNOME_SCREENSHOT_SAVE_LOCATION}..."
 
     if [ ! -d ~/Documents/Screenshots ]; then
         mkdir ~/Documents/Screenshots
@@ -419,7 +419,7 @@ workspace_switcher_applet() {
     gsettings get org.cinnamon enabled-applets > enabled-applets-backup-1.ini
     gsettings set org.cinnamon enabled-applets "$WORKSPACE_SWITCHER_PANEL"
 
-    log "==> installing jq to edit json"
+    log "==> installing jq to edit json..."
     sudo apt install -y jq
 
     WORKSPACE_SWITCHER_SETTINGS_DIRECTORY=~/.config/cinnamon/spices/workspace-switcher@cinnamon.org
@@ -437,13 +437,13 @@ date_format() {
     if [ "${SET_DATE_FORMAT}" != true ] ; then
         return 0
     fi
-    log "Setting date format to EN_US, Windows 10 style..."
+    log "setting date format to EN_US, Windows 10 style..."
 
     # user date format
     gsettings set org.cinnamon.desktop.interface clock-use-24h false
 
     # panel date format
-    log "==> installing jq to edit json"
+    log "==> installing jq to edit json..."
     sudo apt install -y jq
 
     CALENDAR_APPLET_DIRECTORY=~/.config/cinnamon/spices/calendar@cinnamon.org
@@ -478,7 +478,7 @@ cinnamenu_applet() {
     gsettings set org.cinnamon enabled-applets "$(cat enabled-applets-cinnamenu.ini)"
 
     # import preferences
-    log "==> installing jq to edit json"
+    log "==> installing jq to edit json..."
     sudo apt install -y jq
 
     CINNAMENU_SETTINGS_DIRECTORY=~/.config/cinnamon/spices/Cinnamenu@json
@@ -529,7 +529,7 @@ desktop_files() {
     if [ "${CREATE_DESKTOP_FILES}" != true ] ; then
         return 0
     fi
-    log "Creating '.desktop' files..."
+    log "creating '.desktop' files..."
 
     cp -r assets/dot-desktop-files/. ~/.local/share/applications
 }
@@ -540,7 +540,7 @@ grouped_window_list_applet() {
     fi
     log "setting grouped window list applet..."
 
-    log "==> installing jq to edit json"
+    log "==> installing jq to edit json..."
     sudo apt install -y jq
 
     WINDOW_LIST_CONFIG_DIRECTORY=~/.config/cinnamon/spices/grouped-window-list@cinnamon.org
@@ -646,7 +646,7 @@ templates() {
     if [ "${ADD_TEMPLATES}" != true ] ; then
         return 0
     fi
-    log "Adding LibreOffice, plain text templates..."
+    log "adding LibreOffice, plain text templates..."
     
     cp -r assets/Templates/. ~/Templates
 }
@@ -680,7 +680,7 @@ account_picture() {
     if [ "${SET_ACCOUNT_PICTURE}" != true ] ; then
         return 0
     fi
-    log "Setting user account picture..."
+    log "setting user account picture..."
 
     cp /usr/share/cinnamon/faces/3_sky.jpg ~/.face
 
