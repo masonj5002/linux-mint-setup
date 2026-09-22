@@ -21,7 +21,7 @@
 - [X] `ttf-mscorefonts-installer`
   - [X] auto agree to EULA
 - [X] `git`
-  - [ ] Establish git default user name and e-mail
+  - [O] Establish git default user name and e-mail
 - [X] `font-manager`
 - [X] `neofetch`
 - [X] `htop`
@@ -29,7 +29,7 @@
 
 #### Installs from repos complex
 
-- [ ] Firefox ESR (PPA)
+- [X] Firefox ESR (PPA)
   - [X] purge Firefox
   - [X] enable Firefox Smooth Scrolling
   - [X] disable backspace to go back & front space to go forward (apparently already enabled?)
@@ -64,7 +64,7 @@
 - [X] VirtualBox (install repo, currently version 7.2)
   - [X] add current user to `vboxusers`
   - [X] download and install extension pack
-- [ ] Android Studio (install to `/opt/`, add `.desktop` file)
+- [O] Android Studio (install to `/opt/`, add `.desktop` file)
 
 ### Flatpak Installs
 
@@ -128,8 +128,9 @@
   - [X] set panel clock to EN-US Windows 10-type date format
   - [X] set login screen to EN_US time format
 - [X] Login window: enable numlockx
-- [ ] Cleanup maintenance: including `sudo apt clean && sudo apt autoremove`
 - [ ] create `.hidden` file for home directory
+- [ ] set custom icons for grouped window panel
+- [X] cleanup maintenance: including `sudo apt clean && sudo apt autoremove`
 
 ### Keyboard Shortcuts
 
@@ -175,11 +176,11 @@ set enableMiniWindow=false
 - [X] `cinnamon-gtk-theme`
   - [X] set nemo desktop font to 'Ubuntu Bold 12'
   - [X] disable 'use overlay scrollbars'
-- [ ] move variables to top to follow best practice
-- [ ] move configurable options to separate file
 - [O] switch all flatpak installs to non-interactive, force progress bar
 - [X] add user account picture
 - [X] disable `font-manager` install by default
+- [X] move configurable options to separate file
+- [ ] move variables to top to follow best practice
 
 ``` bash
 MOZ_USE_XINPUT2=1 | sudo tee /etc/profile.d/use-xinput2.sh

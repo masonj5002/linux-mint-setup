@@ -1,106 +1,11 @@
 #!/bin/bash
+# My Minty Install
+# Settings: `options.cfg`
 # ============================================================================
-# Configuration
-# ============================================================================
-
-SWITCH_TO_FASTLY_REPO=true
-SETUP_TIMESHIFT_SNAPSHOTS=true
-
-INSTALL_APT_LIST_EASY=true
-INSTALL_FLATPAK_LIST_EASY=true
-PURGE_APT_LIST_EASY=true
-POST_INSTALL_CLEANUP=true
-
-INSTALL_EXTRA_FONTS=true
-INSTALL_TTF_FONTS=true
-INSTALL_VSCODE=true
-INSTALL_ZOOM_WITH_MODS=true
-INSTALL_TTR=true
-INSTALL_KOLOURPAINT_WITH_MODS=true
-INSTALL_FIREFOX_ESR_PURGE_STABLE_WITH_MODS=true
-INSTALL_LIBREOFFICE_FLATPAK_PURGE_APT=true
-INSTALL_CHROMIUM_WITH_MODS=true
-INSTALL_VIRTUALBOX_WITH_EXT_PACK=true
-# INSTALL_BOTTLES_DOWNLOAD_WIZARD=true
-
-CONFIGURE_LOGIN_WINDOW=true
-CHANGE_GNOME_SCREENSHOT_SAVE_LOCATION=true
-SET_CINNAMON_GTK_THEME=true
-SET_WALLPAPER_SLIDESHOW=true
-ADD_WORKSPACE_SWITCHER_APPLET=true
-SET_DATE_FORMAT=true
-INSTALL_CINNAMENU_APPLET=true
-CREATE_DESKTOP_FILES=true
-ADD_KEYBOARD_SHORTCUTS=true
-ADD_DIRECTORIES_COLORS_BOOKMARKS=true
-ADD_TEMPLATES=true
-ADD_NEMO_TWEAKS=true
-ADD_XED_TWEAKS=true
-SET_ACCOUNT_PICTURE=true
-
-# ============================================================================
-# Config
+# Miscellaneous
 # ============================================================================
 
-GNOME_SCREENSHOT_SAVE_LOCATION=~/Documents/Screenshots
-THEME_COLOR="Teal"
-WALLPAPER_DIRECTORY_LOCATION=~/Pictures
-PANEL_CLOCK_FORMAT="%l:%M %p%n%-m/%-d/%Y"  # TODO: use variables in `en_us_w10_date_format``
-PANEL_CLOCK_FORMAT_TOOLTIP="%A, %B %e, %Y"
-FAVORITE_APPS_LIST=\
-"['chromium-browser.desktop', 'mintinstall.desktop', \
-'virtualbox.desktop', 'com.rafaelmardojai.Blanket.desktop:flatpak', \
-'de.haeckerfelix.Shortwave.desktop:flatpak', 'org.x.editor.desktop', \
-'org.gnome.Calculator.desktop', 'org.gnome.Calendar.desktop', \
-'cinnamon-settings.desktop']"
-
-# ============================================================================
-# Package Lists
-# ============================================================================
-
-APT_PACKAGES_EASY=(
-    # font-manager
-    neofetch
-    htop
-    tuptime # tracks system uptime
-    # steam-installer
-
-    ## dev tools
-    git
-    clang
-)
-
-FLATPAK_PACKAGES_EASY=(
-    com.github.tchx84.Flatseal
-    com.tomjwatson.Emote
-    org.kde.kclock
-    com.belmoussaoui.Authenticator
-    de.haeckerfelix.Shortwave
-    com.rafaelmardojai.Blanket
-    org.gnome.Aisleriot
-    org.gnome.Chess
-    org.localsend.localsend_app
-    com.github.unrud.VideoDownloader
-    com.spotify.Client
-    com.discordapp.Discord
-)
-
-APT_PURGE_EASY=(
-    cups-browsed
-)
-
-EXTRA_FONTS_LIST=(
-    fonts-comic-neue
-)
-
-DEB_FILES=(
-    
-
-)
-
-# ============================================================================
-# Misc. Variables
-# ============================================================================
+CONFIG_FILE="options.cfg"
 
 SUPPORTED_VERSION="zena" # 22.3 (Ubuntu 24.04 noble)
 
@@ -137,6 +42,15 @@ greeting_function() {
     log "==> switching to script directory..."
     cd "$(dirname "$0")"
     log "==> ==> current directory: '$(pwd)'"
+
+    log "==> loading config file..."
+    if [ ! -f "$CONFIG_FILE" ] ; then
+        log "==> ==> ERROR: config file not found."
+        log "==> ==> ==> exiting..."
+        sleep 3
+        return 1
+    fi
+    source "$CONFIG_FILE"
 }
 
 version_check() {
