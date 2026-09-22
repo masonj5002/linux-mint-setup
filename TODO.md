@@ -56,7 +56,7 @@
       - [X] themes
         - [X] classic blue
       - [O] hide top bar
-      - [ ] create a set list of bookmarks (i.e. "Clear Browsing Data")
+      - [O] create a set list of bookmarks (i.e. "Clear Browsing Data")
 - [X] VSCode (install repo)
 - [X] Zoom (use .deb)
   - [https://zoom.us/client/latest/zoom_amd64.deb]
