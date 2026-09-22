@@ -182,6 +182,9 @@ set enableMiniWindow=false
 - [X] move configurable options to separate file
 - [ ] move variables to top to follow best practice
 - [ ] publish finalized release beta on GitHub (version 0.8)?
+- Basic VSCODE Settings
+  - [ ] Disable AI
+  - [ ] Restore native toolbar
 
 ``` bash
 MOZ_USE_XINPUT2=1 | sudo tee /etc/profile.d/use-xinput2.sh
@@ -197,7 +200,7 @@ gsettings set org.gnome.gnome-screenshot auto-save-directory "file:///home/mason
 
 ``` bash
 # changing cinnamon desktop fonts
-gsettings get org.cinnamon.desktop.interface font-name
+gsettings get org.cinnamon.desktop.interface grouped_window_list_appletfont-name
 gsettings get org.nemo.desktop font
 gsettings get org.gnome.desktop.interface document-font-name
 gsettings get org.gnome.desktop.interface monospace-font-name
