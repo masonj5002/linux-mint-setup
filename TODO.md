@@ -177,7 +177,7 @@ set enableMiniWindow=false
   - [X] disable 'use overlay scrollbars'
 - [ ] move variables to top to follow best practice
 - [ ] move configurable options to separate file
-- [ ] switch all flatpak installs to non-interactive, force progress bar
+- [O] switch all flatpak installs to non-interactive, force progress bar
 - [X] add user account picture
 - [X] disable `font-manager` install by default
 
