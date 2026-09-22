@@ -129,7 +129,7 @@
   - [X] set login screen to EN_US time format
 - [X] Login window: enable numlockx
 - [ ] create `.hidden` file for home directory
-- [ ] set custom icons for grouped window panel
+- [X] set icon list for grouped window panel
 - [X] cleanup maintenance: including `sudo apt clean && sudo apt autoremove`
 
 ### Keyboard Shortcuts
@@ -181,6 +181,7 @@ set enableMiniWindow=false
 - [X] disable `font-manager` install by default
 - [X] move configurable options to separate file
 - [ ] move variables to top to follow best practice
+- [ ] publish finalized release beta on GitHub (version 0.8)?
 
 ``` bash
 MOZ_USE_XINPUT2=1 | sudo tee /etc/profile.d/use-xinput2.sh
@@ -202,6 +203,10 @@ gsettings get org.gnome.desktop.interface document-font-name
 gsettings get org.gnome.desktop.interface monospace-font-name
 gsettings get org.cinnamon.desktop.wm.preferences titlebar-font
 gsettings get org.cinnamon.desktop.interface text-scaling-factor
+```
+
+``` bash
+jq --arg jq_var ${bash_var} [options...] filter [files ...]
 ```
 
 - [ ] *In the future, explore different linux mint system fonts*

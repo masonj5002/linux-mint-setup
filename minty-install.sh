@@ -534,6 +534,23 @@ desktop_files() {
     cp -r assets/dot-desktop-files/. ~/.local/share/applications
 }
 
+grouped_window_list_applet() {
+    if [ "${SET_GROUPED_WINDOW_LIST_APPLET}" != true ] ; then
+        return 0
+    fi
+    log "setting grouped window list applet..."
+
+    log "==> installing jq to edit json"
+    sudo apt install -y jq
+
+    WINDOW_LIST_CONFIG_DIRECTORY=~/.config/cinnamon/spices/grouped-window-list@cinnamon.org
+
+    jq --argjson pinned_apps_list "$PINNED_APPS_LIST"  '
+    ."pinned-apps".value = $pinned_apps_list 
+    ' $WINDOW_LIST_CONFIG_DIRECTORY/2.json > temp.json
+    mv temp.json $WINDOW_LIST_CONFIG_DIRECTORY/2.json
+}
+
 keyboard_shortcuts() {
     if [ "${ADD_KEYBOARD_SHORTCUTS}" != true ] ; then
         return 0
@@ -711,6 +728,7 @@ workspace_switcher_applet
 date_format
 cinnamenu_applet
 desktop_files
+grouped_window_list_applet
 keyboard_shortcuts
 directories_colors_bookmarks
 templates
