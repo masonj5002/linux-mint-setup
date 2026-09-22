@@ -185,6 +185,8 @@ set enableMiniWindow=false
 - Basic VSCODE Settings
   - [ ] Disable AI
   - [ ] Restore native toolbar
+  - [ ] No overlay scroll bar
+  - [ ] big tab horizontal scrollbar
 
 ``` bash
 MOZ_USE_XINPUT2=1 | sudo tee /etc/profile.d/use-xinput2.sh
