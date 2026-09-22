@@ -341,6 +341,17 @@ firefox_esr_purge_stable_with_mods() {
         sed -i 's/firefox.desktop/firefox-esr.desktop/g' "$file"
     done
 
+    # set policy and import configurations
+    sudo mkdir -p /etc/firefox/policies
+    sudo cp assets/firefox-policies/policies.json /etc/firefox/policies/policies.json
+    sudo chmod -R 644 /etc/firefox/policies/policies.json
+
+    timeout -s INT 8s firefox-esr --headless &
+    sleep 10
+    # NOTE: after firefox-esr 142, profile is stored in `~/.local/mozilla/firefox-esr/`...
+    PROFILE_PATH=$(find ~/.mozilla/firefox-esr/ -type d -name "*.default-esr*")
+    cp assets/firefox-policies/user.js $PROFILE_PATH/user.js
+
     # Allow multitouch gestures and precision scrolling
     MOZ_USE_XINPUT2=1 | sudo tee /etc/profile.d/use-xinput2.sh
 
