@@ -9,6 +9,7 @@ SETUP_TIMESHIFT_SNAPSHOTS=true
 INSTALL_APT_LIST_EASY=true
 INSTALL_FLATPAK_LIST_EASY=true
 PURGE_APT_LIST_EASY=true
+POST_INSTALL_CLEANUP=true
 
 INSTALL_EXTRA_FONTS=true
 INSTALL_TTF_FONTS=true
@@ -148,6 +149,13 @@ version_check() {
     fi
 
     echo "You are running $NAME $VERSION. This version is supported!"
+}
+
+install_cleanup() {
+    if [ "$POST_INSTALL_CLEANUP" != true ] ; then
+        return 0
+    fi
+    sudo apt autoremove -y && sudo apt -y clean
 }
 
 exit_function() {
@@ -798,4 +806,5 @@ account_picture
 
 update_upgrade_apt
 timeshift_snapshot
+install_cleanup
 exit_function
