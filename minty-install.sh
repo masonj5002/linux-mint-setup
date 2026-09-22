@@ -133,13 +133,16 @@ log() {
 greeting_function() {
     log "Welcome!"
     sleep 1
+    log "==> switching to script directory..."
+    cd "$(dirname "$0")"
+    log "==> ==> current directory: '$(pwd)'"
 }
 
 version_check() {
     . /etc/os-release
     if [ $VERSION_CODENAME != $SUPPORTED_VERSION ] ; then
-        echo "Unsupported OS Version. This script supports Linux Mint $SUPPORTED_VERSION. The script will now terminate."
-        echo "The script will now terminate..."
+        log "Unsupported OS Version. This script supports Linux Mint $SUPPORTED_VERSION. The script will now terminate."
+        log "==> The script will now terminate..."
         sleep 3
         return 1
     fi

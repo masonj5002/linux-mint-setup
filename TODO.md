@@ -9,7 +9,7 @@
 ## Initialization
 
 - [X] abort if mint version does not match
-- [ ] script only runs if script is in current directory (or similar fix)
+- [X] script runs only if in script directory
 - [X] gain `sudo` access
 - [X] set repo to Fastly
 - [X] create `apt update` and `apt upgrade function`
