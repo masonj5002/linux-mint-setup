@@ -1,0 +1,19 @@
+{
+    "window.titleBarStyle": "native",
+    "chat.disableAIFeatures": true,
+    "window.commandCenter": false,
+    "workbench.layoutControl.enabled": false,
+    "workbench.startupEditor": "none",
+    "terminal.integrated.initialHint": false,
+    "terminal.integrated.stickyScroll.enabled": false,
+    "update.showReleaseNotes": false,
+    "makefile.configureOnOpen": true,
+    "redhat.telemetry.enabled": false,
+    "[python]": {
+        "editor.defaultFormatter": "ms-python.black-formatter"
+    },
+    "workbench.editor.empty.hint": "hidden",
+    "editor.scrollbar.vertical": "visible",
+    "editor.scrollbar.horizontal": "visible",
+    "workbench.editor.titleScrollbarSizing": "large"
+}
