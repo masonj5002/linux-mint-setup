@@ -173,6 +173,7 @@ set enableMiniWindow=false
     - [O] Authenticator
     - [X] Clock
     - [X] Video Downloader
+    - [ ] LocalSend
 - [X] `cinnamon-gtk-theme`
   - [X] set nemo desktop font to 'Ubuntu Bold 12'
   - [X] disable 'use overlay scrollbars'
@@ -182,6 +183,12 @@ set enableMiniWindow=false
 - [X] move configurable options to separate file
 - [ ] move variables to top to follow best practice
 - [ ] publish finalized release beta on GitHub (version 0.8)?
+- [ ] find command that applies light breeze theme to ONLY specified apps
+  - KOLOURPAINT, LibreOffice
+- [ ] force LibreOffice theme Breeze Light
+- [ ] Somehow, make sure firefox-esr stays default browser
+- [ ] Zoom setting: exit on close
+- [ ] Option for script to delete itself
 - Basic VSCODE Settings
   - [ ] Disable AI
   - [ ] Restore native toolbar
