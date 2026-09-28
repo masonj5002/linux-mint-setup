@@ -215,6 +215,10 @@ zoom_with_mods() {
     for file in ~/.config/zoomus.conf ; do
         sed -i 's/enableMiniWindow=true/enableMiniWindow=false/g' "$file"
     done
+
+    for file in ~/.config/zoomus.conf ; do
+        sed -i 's/showSystemTitlebar=false/showSystemTitlebar=true/g' "$file"
+    done
 }
 
 ttr() {
@@ -737,6 +741,6 @@ xed_tweaks
 account_picture
 
 update_upgrade_apt
-timeshift_snapshot
 install_cleanup
+timeshift_snapshot
 exit_function
