@@ -129,6 +129,9 @@ update_only_apt() {
 }
 
 update_upgrade_apt() {
+    if [ "$UPGRADE_ALL_APT" != true ] ; then
+        return 0
+    fi
     update_only_apt
     log "upgrading apt packages..."
     sudo apt upgrade -y
