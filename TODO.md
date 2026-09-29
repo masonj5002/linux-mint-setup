@@ -128,7 +128,7 @@
   - [X] set panel clock to EN-US Windows 10-type date format
   - [X] set login screen to EN_US time format
 - [X] Login window: enable numlockx
-- [ ] create `.hidden` file for home directory
+- [X] create `.hidden` file for home directory
 - [X] set icon list for grouped window panel
 - [X] cleanup maintenance: including `sudo apt clean && sudo apt autoremove`
 

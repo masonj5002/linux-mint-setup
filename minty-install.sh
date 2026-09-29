@@ -699,6 +699,15 @@ account_picture() {
     done
 }
 
+hidden_files() {
+    if [ "${SET_HIDDEN_FILES}" != true ] ; then
+        return 0
+    fi
+    log "setting files as hidden..."
+
+    cp assets/dot_hidden.txt ~/.hidden
+}
+
 # ============================================================================
 # Main
 # ============================================================================
@@ -742,6 +751,7 @@ templates
 nemo_tweaks
 xed_tweaks
 account_picture
+hidden_files
 
 update_upgrade_apt
 install_cleanup
