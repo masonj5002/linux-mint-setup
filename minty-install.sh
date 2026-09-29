@@ -292,6 +292,9 @@ firefox_esr_purge_stable_with_mods() {
             rm $PGK_DESKTOP_PATH
         fi
     fi
+
+    # Re-set firefox-esr as default
+    xdg-settings set default-web-browser firefox-esr.desktop
 }
 
 libreoffice_flatpak_purge_apt() {
@@ -303,6 +306,9 @@ libreoffice_flatpak_purge_apt() {
     sudo apt purge -y libreoffice*
     flatpak install flathub --noninteractive -y org.libreoffice.LibreOffice \
                                                 org.libreoffice.LibreOffice.Help
+
+    # set theme to light
+    sudo flatpak override --system --env=GTK_THEME=Breeze:light org.libreoffice.LibreOffice
 }
 
 chromium_with_mods() {
