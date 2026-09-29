@@ -189,6 +189,7 @@ set enableMiniWindow=false
 - [ ] Somehow, make sure firefox-esr stays default browser
 - [ ] Zoom setting: exit on close
 - [ ] Option for script to delete itself
+- [ ] disable window titling / "Snapping"
 - Basic VSCODE Settings
   - [ ] Disable AI
   - [ ] Restore native toolbar
