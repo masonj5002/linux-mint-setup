@@ -15,5 +15,6 @@
     "workbench.editor.empty.hint": "hidden",
     "editor.scrollbar.vertical": "visible",
     "editor.scrollbar.horizontal": "visible",
-    "workbench.editor.titleScrollbarSizing": "large"
+    "workbench.editor.titleScrollbarSizing": "large",
+    "update.mode": "none"
 }
