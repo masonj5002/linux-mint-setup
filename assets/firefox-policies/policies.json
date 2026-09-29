@@ -1,6 +1,6 @@
 {
     "policies": {
-        "DontCheckDefaultBrowser": true,
+        "DefaultBrowserSettingEnabled": false,
         "SkipTermsOfUse": true,
         "DisableTelemetry": true,
         "GenerativeAI": {
