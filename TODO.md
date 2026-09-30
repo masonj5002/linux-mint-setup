@@ -185,17 +185,17 @@ set enableMiniWindow=false
 - [ ] publish finalized release beta on GitHub (version 0.8)?
 - [X] find command that applies light breeze theme to ONLY specified apps
   - KOLOURPAINT, LibreOffice
-- [ ] set LibreOffice theme to "Microsoft Office 2003"
+- [X] set LibreOffice theme to "Microsoft Office 2003"
 - [X] force LibreOffice theme Breeze Light
 - [X] reaffirm firefox-esr stays default browser
+- [X] disable window titling / "Snapping"
 - [ ] Zoom setting: exit on close
-- [ ] Option for script to delete itself
-- [ ] disable window titling / "Snapping"
 - Basic VSCODE Settings
   - [ ] Disable AI
   - [ ] Restore native toolbar
   - [ ] No overlay scroll bar
   - [ ] big tab horizontal scrollbar
+- [ ] Option for script to delete itself
 
 ``` bash
 MOZ_USE_XINPUT2=1 | sudo tee /etc/profile.d/use-xinput2.sh

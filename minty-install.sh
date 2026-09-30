@@ -739,6 +739,18 @@ hidden_files() {
     cp assets/dot_hidden.txt ~/.hidden
 }
 
+tiling() {
+    if [ "${DISABLE_WINDOW_TILING}" == true ] ; then
+        gsettings set org.cinnamon.muffin edge-tiling false
+        return 0
+    fi
+    if [ "${MAXIMIZE_WINDOW_AT_TOP}" == true ] ; then
+        gsettings set org.cinnamon.muffin edge-tiling true
+        gsettings set org.cinnamon.muffin tile-maximize true
+        return 0
+    fi
+}
+
 # ============================================================================
 # Main
 # ============================================================================
@@ -783,6 +795,7 @@ nemo_tweaks
 xed_tweaks
 account_picture
 hidden_files
+tiling
 
 update_upgrade_apt
 install_cleanup
