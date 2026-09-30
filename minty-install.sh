@@ -307,8 +307,33 @@ libreoffice_flatpak_purge_apt() {
     flatpak install flathub --noninteractive -y org.libreoffice.LibreOffice \
                                                 org.libreoffice.LibreOffice.Help
 
-    # set theme to light
+    log "==> setting theme to 'Office 2003'..."
     sudo flatpak override --system --env=GTK_THEME=Breeze:light org.libreoffice.LibreOffice
+
+    wget https://extensions.libreoffice.org/assets/downloads/213/1750614184/Office2003Blue.oxt
+    echo "yes" | flatpak run --command=/app/libreoffice/program/unopkg \
+        org.libreoffice.LibreOffice add Office2003Blue.oxt
+    echo ""
+
+    # create user profile
+    timeout -s INT 8s flatpak run org.libreoffice.LibreOffice --headless &
+    sleep 10
+
+    LO_CFG_FILE="$HOME/.var/app/org.libreoffice.LibreOffice/config/libreoffice/4/user/registrymodifications.xcu"
+
+    # setting: "Use application theming"
+    NEW_STRING='<item oor:path="/org.openoffice.Office.Common/Appearance"><prop oor:name="LibreOfficeTheme" oor:op="fuse"><value>1</value></prop></item>'
+    if ! grep -q "LibreOfficeTheme" $LO_CFG_FILE ; then
+        sed -i "3i\\$NEW_STRING" "$LO_CFG_FILE"
+    fi
+
+    # icon pack: 'Colibre'
+    NEW_STRING='<item oor:path="/org.openoffice.Office.Common/Misc"><prop oor:name="SymbolStyle" oor:op="fuse"><value>colibre</value></prop></item>'
+    if ! grep -q "SymbolStyle" $LO_CFG_FILE ; then
+        sed -i "3i\\$NEW_STRING" "$LO_CFG_FILE"
+    fi
+
+    # note: setting toolbar as 'single' requires many edits
 }
 
 chromium_with_mods() {
