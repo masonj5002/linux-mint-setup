@@ -183,10 +183,11 @@ set enableMiniWindow=false
 - [X] move configurable options to separate file
 - [ ] move variables to top to follow best practice
 - [ ] publish finalized release beta on GitHub (version 0.8)?
-- [ ] find command that applies light breeze theme to ONLY specified apps
+- [X] find command that applies light breeze theme to ONLY specified apps
   - KOLOURPAINT, LibreOffice
-- [ ] force LibreOffice theme Breeze Light
-- [ ] Somehow, make sure firefox-esr stays default browser
+- [ ] set LibreOffice theme to "Microsoft Office 2003"
+- [X] force LibreOffice theme Breeze Light
+- [X] reaffirm firefox-esr stays default browser
 - [ ] Zoom setting: exit on close
 - [ ] Option for script to delete itself
 - [ ] disable window titling / "Snapping"
