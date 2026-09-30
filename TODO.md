@@ -173,7 +173,7 @@ set enableMiniWindow=false
     - [O] Authenticator
     - [X] Clock
     - [X] Video Downloader
-    - [ ] LocalSend
+    - [X] LocalSend
 - [X] `cinnamon-gtk-theme`
   - [X] set nemo desktop font to 'Ubuntu Bold 12'
   - [X] disable 'use overlay scrollbars'
@@ -181,21 +181,21 @@ set enableMiniWindow=false
 - [X] add user account picture
 - [X] disable `font-manager` install by default
 - [X] move configurable options to separate file
-- [ ] move variables to top to follow best practice
-- [ ] publish finalized release beta on GitHub (version 0.8)?
+- [X] move variables to top to follow best practice
 - [X] find command that applies light breeze theme to ONLY specified apps
   - KOLOURPAINT, LibreOffice
 - [X] set LibreOffice theme to "Microsoft Office 2003"
 - [X] force LibreOffice theme Breeze Light
 - [X] reaffirm firefox-esr stays default browser
 - [X] disable window titling / "Snapping"
-- [ ] Zoom setting: exit on close
+- [O] Zoom setting: exit on close
 - Basic VSCODE Settings
-  - [ ] Disable AI
-  - [ ] Restore native toolbar
-  - [ ] No overlay scroll bar
-  - [ ] big tab horizontal scrollbar
+  - [X] Disable AI
+  - [X] Restore native toolbar
+  - [X] No overlay scroll bar
+  - [X] big tab horizontal scrollbar
 - [ ] Option for script to delete itself
+- [ ] publish finalized release beta on GitHub (version 0.8)?
 
 ``` bash
 MOZ_USE_XINPUT2=1 | sudo tee /etc/profile.d/use-xinput2.sh

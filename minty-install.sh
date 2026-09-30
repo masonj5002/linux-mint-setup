@@ -181,8 +181,8 @@ ttf_fonts() {
     sudo apt install -y ttf-mscorefonts-installer
 }
 
-vscode() {
-    if [ "${INSTALL_VSCODE}" != true ] ; then
+vscode_with_mods() {
+    if [ "${INSTALL_VSCODE_WITH_MODS}" != true ] ; then
         return 0
     fi
     log "installing VSCode..."
@@ -200,6 +200,12 @@ vscode() {
 
     update_only_apt
     sudo apt install -y code
+
+    timeout -s INT 8s code &
+    sleep 10
+    killall code
+    sleep 4
+    cp assets/vscode/settings.json ~/.config/Code/User/settings.json
 }
 
 zoom_with_mods() {
@@ -770,7 +776,7 @@ install_flatpak_easy
 
 extra_fonts
 ttf_fonts
-vscode
+vscode_with_mods
 zoom_with_mods
 ttr
 kolourpaint_with_mods
