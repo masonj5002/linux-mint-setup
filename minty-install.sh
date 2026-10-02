@@ -169,6 +169,9 @@ extra_fonts() {
     fi
     log "installing extra fonts..."
     sudo apt install -y "${EXTRA_FONTS_PACKAGES[@]}"
+
+    # Refresh font cache
+    sudo fc-cache -f -v
 }
 
 ttf_fonts() {
@@ -179,6 +182,9 @@ ttf_fonts() {
 
     echo "ttf-mscorefonts-installer msttcorefonts/accepted-mscorefonts-eula select true" | sudo debconf-set-selections
     sudo apt install -y ttf-mscorefonts-installer
+
+    # Refresh font cache
+    sudo fc-cache -f -v
 }
 
 vscode_with_mods() {
