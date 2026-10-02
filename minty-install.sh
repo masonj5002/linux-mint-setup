@@ -168,7 +168,7 @@ extra_fonts() {
         return 0
     fi
     log "installing extra fonts..."
-    sudo apt install -y "${EXTRA_FONTS_LIST[@]}"
+    sudo apt install -y "${EXTRA_FONTS_PACKAGES[@]}"
 }
 
 ttf_fonts() {
