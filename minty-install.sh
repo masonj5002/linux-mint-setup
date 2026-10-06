@@ -309,7 +309,7 @@ firefox_esr_purge_stable_with_mods() {
     cp assets/firefox-policies/user.js $PROFILE_PATH/user.js
 
     # Allow multitouch gestures and precision scrolling
-    MOZ_USE_XINPUT2=1 | sudo tee /etc/profile.d/use-xinput2.sh
+    echo "export MOZ_USE_XINPUT2=1" | sudo tee /etc/profile.d/use-xinput2.sh
 
     # remove Matrix .desktop file if removed as dependency
     if ! dpkg -s mintchat &>/dev/null ; then  
