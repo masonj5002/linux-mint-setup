@@ -118,6 +118,7 @@
   - [X] remove 'Delete' from context menu
   - [X] add 'Make Alias' to context menu
   - [X] add 'New Folder', 'Open in Terminal' to context menu
+  - [ ] hide all thumbnails
 - [X] Xed
   - [X] enable line numbers by default
   - [X] make `xed` open in a new window *every* time
@@ -224,5 +225,5 @@ jq --arg jq_var ${bash_var} [options...] filter [files ...]
 ```
 
 - [ ] *In the future, explore different linux mint system fonts*
-- [ ] fix the version check so that it returns 1 instead of exiting...
+- [X] fix the version check so that it returns 1 instead of exiting...
 - *on mint 23, switch `neofetch` to `fastfetch`, if not already installed*
