@@ -170,6 +170,10 @@ extra_fonts() {
     log "installing extra fonts..."
     sudo apt install -y "${EXTRA_FONTS_PACKAGES[@]}"
 
+    EXTRA_FONTS_DIRECTORY=/usr/share/fonts/extra/
+
+    sudo wget "${EXTRA_FONTS_FILES[@]}" -P $EXTRA_FONTS_DIRECTORY
+
     # Refresh font cache
     sudo fc-cache -f -v
 }
@@ -714,6 +718,9 @@ nemo_tweaks() {
     # add to shortcuts to toolbar
     gsettings set org.nemo.preferences show-new-folder-icon-toolbar true
     gsettings set org.nemo.preferences show-open-in-terminal-toolbar true
+
+    # disable thumbnails
+    gsettings set org.nemo.preferences "show-image-thumbnails" 'never'
 }
 
 xed_tweaks() {
