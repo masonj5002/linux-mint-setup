@@ -207,7 +207,7 @@ flatpak override --user --env=GTK_THEME=Adwaita:light org.kde.kolourpaint
 ```
 
 ``` bash
-gsettings set org.gnome.gnome-screenshot auto-save-directory "file:///home/mason/Documents/Screenshots"
+gsettings set org.gnome.gnome-screenshot auto-save-directory "file://$HOME/Documents/Screenshots"
 ```
 
 ``` bash
