@@ -93,6 +93,16 @@ delete_script() {
     log "Done!"
 }
 
+reboot_system() {
+    if [ "$REBOOT_AFTER_INSTALLING" != true ] ; then
+        return 0
+    fi
+    log "Rebooting now..."
+
+    sleep 3
+    sudo reboot
+}
+
 fastly_repo() {
     if [ "$SWITCH_TO_FASTLY_REPO" != true ] ; then
         return 0
@@ -847,3 +857,4 @@ install_cleanup
 timeshift_snapshot
 exit_function
 delete_script
+reboot_system
