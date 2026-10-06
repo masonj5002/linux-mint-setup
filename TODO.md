@@ -196,6 +196,7 @@ set enableMiniWindow=false
   - [X] No overlay scroll bar
   - [X] big tab horizontal scrollbar
 - [ ] Option for script to delete itself
+- [ ] install fonts downloaded from github
 - [ ] publish finalized release beta on GitHub (version 0.8)?
 
 ``` bash
