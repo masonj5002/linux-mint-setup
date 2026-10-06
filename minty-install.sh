@@ -80,19 +80,6 @@ exit_function() {
     log "Goodbye! Please reboot!"
 }
 
-delete_script() {
-    if [ "$DELETE_SCRIPT_AFTER_INSTALLING" != true ] ; then
-        return 0
-    fi
-    log "deleting script..."
-
-    rm -rf !("minty-install.sh")
-    cd ..
-    rm -r "linux-mint-setup"
-
-    log "Done!"
-}
-
 reboot_system() {
     if [ "$REBOOT_AFTER_INSTALLING" != true ] ; then
         return 0
@@ -856,5 +843,4 @@ update_upgrade_apt
 install_cleanup
 timeshift_snapshot
 exit_function
-delete_script
 reboot_system
