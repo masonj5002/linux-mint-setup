@@ -313,6 +313,15 @@ firefox_esr_purge_stable_with_mods() {
     xdg-settings set default-web-browser firefox-esr.desktop
 }
 
+thunderbird_flatpak_purge_apt() {
+    if [ "${INSTALL_THUNDERBIRD_FLATPAK_PURGE_APT}" != true ] ; then
+        return 0
+    fi
+
+    sudo apt purge thunderbird*
+    flatpak install flathub --noninteractive -y org.mozilla.thunderbird
+}
+
 libreoffice_flatpak_purge_apt() {
     if [ "${INSTALL_LIBREOFFICE_FLATPAK_PURGE_APT}" != true ] ; then
         return 0
@@ -796,6 +805,7 @@ zoom_with_mods
 ttr
 kolourpaint_with_mods
 firefox_esr_purge_stable_with_mods
+thunderbird_flatpak_purge_apt
 libreoffice_flatpak_purge_apt
 chromium_with_mods
 virtualbox_with_ext_pack
