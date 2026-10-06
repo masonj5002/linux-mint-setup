@@ -753,10 +753,12 @@ hidden_files() {
 
 tiling() {
     if [ "${DISABLE_WINDOW_TILING}" == true ] ; then
+        log "disabling window tiling..."
         gsettings set org.cinnamon.muffin edge-tiling false
         return 0
     fi
     if [ "${MAXIMIZE_WINDOW_AT_TOP}" == true ] ; then
+        log "enabling maximize window when dragged to top..."
         gsettings set org.cinnamon.muffin edge-tiling true
         gsettings set org.cinnamon.muffin tile-maximize true
         return 0
@@ -766,7 +768,7 @@ tiling() {
 # ============================================================================
 # Main
 # ============================================================================
-set -e # exit immediately if a command exits with a non-zero status.
+set -e # exit immediately if a command exits with non-zero status.
 
 greeting_function
 version_check
