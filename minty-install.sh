@@ -80,6 +80,19 @@ exit_function() {
     log "Goodbye! Please reboot!"
 }
 
+delete_script() {
+    if [ "$DELETE_SCRIPT_AFTER_INSTALLING" != true ] ; then
+        return 0
+    fi
+    log "deleting script..."
+
+    rm -rf !("minty-install.sh")
+    cd ..
+    rm -r "linux-mint-setup"
+
+    log "Done!"
+}
+
 fastly_repo() {
     if [ "$SWITCH_TO_FASTLY_REPO" != true ] ; then
         return 0
@@ -317,6 +330,7 @@ thunderbird_flatpak_purge_apt() {
     if [ "${INSTALL_THUNDERBIRD_FLATPAK_PURGE_APT}" != true ] ; then
         return 0
     fi
+    log "purging apt Thunderbird and installing flatpak Thunderbird..."
 
     sudo apt purge thunderbird*
     flatpak install flathub --noninteractive -y org.mozilla.thunderbird
@@ -832,3 +846,4 @@ update_upgrade_apt
 install_cleanup
 timeshift_snapshot
 exit_function
+delete_script

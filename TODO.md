@@ -196,7 +196,7 @@ set enableMiniWindow=false
   - [X] No overlay scroll bar
   - [X] big tab horizontal scrollbar
 - [X] purge Thunderbird, install flatpak
-- [ ] Option for script to delete itself
+- [X] Option for script to delete itself
 - [X] install fonts downloaded from github
 - [ ] publish finalized release beta on GitHub (version 0.8)?
 
