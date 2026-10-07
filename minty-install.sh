@@ -329,7 +329,7 @@ thunderbird_flatpak_purge_apt() {
     fi
     log "purging apt Thunderbird and installing flatpak Thunderbird..."
 
-    sudo apt purge thunderbird*
+    sudo apt purge -y thunderbird*
     flatpak install flathub --noninteractive -y org.mozilla.thunderbird
 }
 
