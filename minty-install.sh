@@ -178,10 +178,9 @@ extra_fonts() {
         return 0
     fi
     log "installing extra fonts..."
+    
     sudo apt install -y "${EXTRA_FONTS_PACKAGES[@]}"
-
     EXTRA_FONTS_DIRECTORY=/usr/share/fonts/extra/
-
     sudo wget "${EXTRA_FONTS_FILES[@]}" -P $EXTRA_FONTS_DIRECTORY
 
     # Refresh font cache
